@@ -1,0 +1,43 @@
+Gra w Kó³ko i krzy¿yk powinna powinna siê sk³adaæ z nastêpuj¹cych klas:
+1. Klasa przechowuj¹ca dane o planszy. Powinna zawieraæ testy:
+    a- sprawdzaj¹cy, czy da siê utworzyæ now¹ plansze
+    b- czy nowa plansza zawiera puste wartoœci
+    c- czy da siê dodaæ prawid³owy ruch
+    d- czy da siê dodaæ dwa razy taki sam ruch
+    e- czy da siê dodaæ nieprawid³owy ruch (rozwa¿yæ przypadki podania niepoprawnych koordynatów oraz niepoprawnego symbolu)
+    f- czy da siê pobraæ element planszy o prawid³owym adresie
+    g - czy da siê pobraæ element planszy o nieprawid³owym adresie
+2. Klasê sprawdzaj¹c¹, czy dala plansza jest ju¿ rozwi¹zana (czy któryœ z graczy wygra³). Testy:
+    a- czy dla pustej planszy metoda sprawdzaj¹ca zwraca informacje o tym, ¿e nikt nie wygra³
+    b- czy je¿eli w którymkolwiek z wierszy s¹ 3 symbole jednego gracza, to czy zwracany jest symbol tego gracza
+    c- czy je¿eli w którejkolwiek z kolumn s¹ 3 symbole jednego gracza, to czy zwracany jest symbol tego gracza
+    d- czy je¿eli na którejkolwiek przek¹tnej s¹ 3 symbole jednego gracza, to czy zwracany jest symbol tego gracza
+3. Klasê gracza ludzkiego
+    - sprawdziæ, czy da siê utworzyæ tak¹ klasê (rozwa¿yæ, czy powinna ona mieæ konstruktor bezparametrowy, czy mo¿e powinna wymagaæ jakiejœ wartoœci)
+    - czy po wpisaniu wartosci na strumien wejsciowy jest zwracany poprawny adres komórki planszy
+4. Klasê gracza automatycznego
+    - sprawdziæ, czy da siê utworzyæ tak¹ klasê
+    - czy dla ró¿nych przypadków planszy jest zwracany poprawny adres komórki (czy jest w odpowiednim zakresie oraz czy nie próbuje wybraæ pola ju¿ zajêtego)
+    BONUS: rozwa¿yæ wydzielenie dla graczy wspólnego interface lub klasy abstrakcyjnej
+5. Klasê zarz¹dzaj¹c¹ gr¹
+    - sprawdziæ, czy da siê utworzyæ tak¹ klasê (rozwa¿yæ, czy powinna ona mieæ konstruktor bezparametrowy, czy mo¿e powinna wymagaæ jakiejœ wartoœci)
+    - sprawdziæ, czy pobiera ruch od gracza
+    - sprawdziæ, czy pobiera ruchy od graczy naprzemiennie
+    - sprawdziæ, czy przestaje pobieraæ ruch od gracza, gdy gra zostanie zakoñczona (wygrana jednego z graczy lub przez remis)
+    - sprawdzic, czy przekazuje pobrane od gracza koordynaty ruchu do planszy
+    - sprawdzic, czy przekazuje do planszy prawid³owy symbol gracza
+    - sprawdziæ, czy po wykonaniu ruchu waliduje wygran¹ któregoœ z graczy
+    - sprawdziæ, czy jest zwyciezca i  zwrócenie symbolu gracza
+    - sprawdziæ, czy gra zakonczyla sie remisem
+    - sprawdziæ, czy gra zostala porzucona
+6. Klasê, która wyœwietla planszê
+    - jak wyœwietla planszê, kiedy jest pusta
+    - jak wyœwietla planszê, kiedy jest ca³kowicie zape³niona
+    - jak wyœwietla planszê, kiedy zawiera kilka ustawionych pól
+7. Klasê, która wyœwietla menu gry
+    - sprawdziæ, czy wypisuje odpowiednie komunikaty dla u¿ytkownika z menu
+    - sprawdziæ, czy wykonuje prawid³owe operacje (utworzenie obiektów i przekazanie ich do zale¿nych klas) po wybraniu opcji nowej gry
+8. Klasê, która uruchamia grê (Main)
+9. Wykorzystac dla testow junitparams.
+10. Sprobowac w wybranych testach wykorzystac mockito.
+
