@@ -1,8 +1,8 @@
 package ticTacToeTest;
 
 import org.junit.Test;
-import ticTacToe.Board;
-import ticTacToe.Logic;
+import ticTacToe.game.Board;
+import ticTacToe.game.Logic;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 

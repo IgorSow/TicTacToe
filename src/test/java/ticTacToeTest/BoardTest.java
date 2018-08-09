@@ -2,7 +2,7 @@ package ticTacToeTest;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
-import ticTacToe.Board;
+import ticTacToe.game.Board;
 
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;

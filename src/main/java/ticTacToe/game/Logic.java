@@ -1,4 +1,4 @@
-package ticTacToe;
+package ticTacToe.game;
 
 public class Logic {
 
@@ -17,7 +17,7 @@ public class Logic {
                     && board.getBoard()[1][i].equals(board.getBoard()[2][i])
                     && !board.getBoard()[0][i].equals(""))
                 return board.getBoard()[0][i];
-        }
+            }
 
         if (board.getBoard()[0][0].equals(board.getBoard()[1][1])
                 && board.getBoard()[1][1].equals(board.getBoard()[2][2])
@@ -29,7 +29,7 @@ public class Logic {
                 && !board.getBoard()[2][0].equals(""))
             return board.getBoard()[2][0];
 
-        return "No winner";
+        return  "No winner";
     }
 
     //toDo czesc 5

@@ -1,6 +1,8 @@
-package ticTacToe;
+package ticTacToe.game;
 
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.Arrays;
 
 @Slf4j
 public class Board {
@@ -20,11 +22,9 @@ public class Board {
         return board;
     }
 
-
     public void setBoard(String[][] board) {
         this.board = board;
     }
-
 
     public boolean betField(int row, int col, String sign) {
 
@@ -40,7 +40,6 @@ public class Board {
         return false;
     }
 
-
     public String getField(int row, int col) throws Exception {
 
         String ret = "";
@@ -52,5 +51,13 @@ public class Board {
         return ret;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
+        Board board1 = (Board) o;
+
+        return Arrays.deepEquals(board, board1.board);
+    }
 }

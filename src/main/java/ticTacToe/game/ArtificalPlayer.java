@@ -1,4 +1,4 @@
-package ticTacToe;
+package ticTacToe.game;
 
 public class ArtificalPlayer {
 }

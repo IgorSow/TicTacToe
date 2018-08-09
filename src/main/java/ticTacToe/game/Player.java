@@ -1,4 +1,4 @@
-package ticTacToe;
+package ticTacToe.game;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -7,15 +7,23 @@ import java.util.Scanner;
 @Slf4j
 public class Player {
 
+    private String name;
     private String sign;
 
-    public Player(String sign) {
+
+    public Player(String name, String sign) {
+        this.name = name;
         this.sign = sign;
     }
 
     public String getSign() {
         return sign;
     }
+
+    public String getName() {
+        return name;
+    }
+
 
     public String[] returnCordinates(){
 
