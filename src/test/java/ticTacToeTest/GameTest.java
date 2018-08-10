@@ -49,7 +49,7 @@ public class GameTest {
     }
 
     @Test
-    public void shouldCheckMovePlayerByPlayer(){
+    public void shouldCheckMovePlayerByPlayer() throws Exception {
         //given
 
         Player player1 = new Player("Janusz", "X");

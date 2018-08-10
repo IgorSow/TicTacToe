@@ -30,14 +30,14 @@ public class LogicTest {
         Board board = new Board();
 
         //when
-        board.betField(0, 0, "X");
-        board.betField(0, 1, "X");
-        board.betField(0, 2, "X");
+        board.betField(0, 0, "O");
+        board.betField(0, 1, "O");
+        board.betField(0, 2, "O");
 
         String winner = logic.isWinGame(board);
 
         //then
-        assertThat(winner).isEqualToIgnoringCase("x");
+        assertThat(winner).isEqualToIgnoringCase("O");
     }
 
     @Test // case 2: c

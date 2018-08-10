@@ -1,6 +1,6 @@
 package ticTacToe.game;
 
-public class Logic {
+public class  Logic {
 
 
     public String isWinGame(Board board) {
@@ -47,5 +47,7 @@ public class Logic {
     }
 
     //toDo czesc 5
+
+
 
 }

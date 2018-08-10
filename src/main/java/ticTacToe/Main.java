@@ -8,11 +8,11 @@ import ticTacToe.game.Player;
 @Slf4j
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
 
         Player player1 = new Player("Janusz", "X");
-        Player player2 = new Player("Grazyna", "O");
+        Player player2 = new Player("MATEUSZ", "O");
 
         Game newGame = new Game(player1, player2);
 

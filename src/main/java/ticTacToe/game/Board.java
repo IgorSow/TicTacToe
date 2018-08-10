@@ -28,7 +28,7 @@ public class Board {
 
     public boolean betField(int row, int col, String sign) {
 
-        if (row > 2 || col > 2 || (!sign.equals("X") && !sign.equals("O"))) {
+        if (row > 2 || col > 2 || (!sign.equalsIgnoreCase("X") && !sign.equalsIgnoreCase("O"))) {
             log.info("We play in TicTacToe add value 0 do 2 and pick X or O");
             return false;
         }
