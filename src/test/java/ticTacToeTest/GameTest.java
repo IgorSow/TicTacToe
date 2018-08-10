@@ -52,14 +52,14 @@ public class GameTest {
     public void shouldCheckMovePlayerByPlayer(){
         //given
 
-        Player player1 = new Player("Janusz", "x");
+        Player player1 = new Player("Janusz", "X");
         Player player2 = new Player("Grazyna", "O");
 
         Game newGame = new Game(player1, player2);
 
         //then
 
-        System.out.println(newGame.playUntilWinner(newGame));
+       newGame.playUntilWinner(player1,player2);
 
 
     }

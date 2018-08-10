@@ -2,6 +2,8 @@ package ticTacToe.game;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Scanner;
+
 @Slf4j
 public class Game {
     private Player player1;
@@ -32,22 +34,39 @@ public class Game {
 
         String playerSign = player.getSign();
 
-        if (board.betField(row, col, playerSign) == true) {
-
-            log.info("Player " + player.getName() + " added move row " + row + " and col " + col);
-            return true;
-        } else
-            System.out.println(" DUPA U PLAYERA");
-            return false;
-
+        return board.betField(row, col, playerSign);
     }
 
 
-    public String playUntilWinner(Game game) {
+    public String playUntilWinner(Player player1, Player player2) {
+        Scanner scanner = new Scanner(System.in);
+        int row;
+        int col;
 
-        Board boardToCheck = game.getBoard();
+        do  {
+            do {
+                log.info(player1.getName() + " please give your move ");
+                log.info("Please give a row : ");
+                row = scanner.nextInt();
+                log.info("Please give a col : ");
+                col = scanner.nextInt();
 
+            }
+            while (playerBetField(row, col, player1) == false);
 
-        return logic.isWinGame(boardToCheck);
+            do {
+                log.info(player2.getName() + " please give your move ");
+                log.info("Please give a row : ");
+                row = scanner.nextInt();
+                log.info("Please give a col: ");
+                col = scanner.nextInt();
+
+            }
+            while (playerBetField(row, col, player2) == false);
+
+        }while ((!logic.isWinGame(board).equals("X")
+                || !logic.isWinGame(board).equals("0")
+                || !logic.gameEnded(board)));
+        return logic.isWinGame(board);
     }
 }

@@ -9,7 +9,7 @@ public class Menu {
 
         log.info("POdaj kto gra");
 
-//        menuGame(P)
+
 
     }
 

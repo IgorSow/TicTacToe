@@ -60,4 +60,9 @@ public class Board {
 
         return Arrays.deepEquals(board, board1.board);
     }
+
+    @Override
+    public int hashCode() {
+        return Arrays.deepHashCode(board);
+    }
 }
