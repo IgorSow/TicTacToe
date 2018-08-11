@@ -37,14 +37,6 @@ public class Game {
         return board.betField(row, col, playerSign);
     }
 
-    public String isWinGame(Board board){
-        return logic.isWinGame(board);
-    }
-
-    public boolean gameEnded(Board board){
-        return logic.gameEnded(board);
-    }
-
 
     public String playUntilWinner(Player player1, Player player2) throws Exception {
         Scanner scanner = new Scanner(System.in);
@@ -61,51 +53,27 @@ public class Game {
                 row = scanner.nextInt();
                 log.info("Please give a col : ");
                 col = scanner.nextInt();
-//                ret = !((logic.isWinGame(board).equals("X")
-//                        || logic.isWinGame(board).equals("0")
-//                        || logic.gameEnded(board)));
-//
-//                System.out.println("Logika 1" + isWinGame(board).equals("X"));
-//                System.out.println("Logika 2" + isWinGame(board).equals("0"));
-//                System.out.println("Logika 3" + gameEnded(board));
-//
-//                System.out.println(board.getField(row,col));
-//
-//                System.out.println(ret);
             }
-            while (playerBetField(row, col, player1) ==false);
-
+            while (playerBetField(row, col, player1) == false);
 
             if ((logic.isWinGame(board).equalsIgnoreCase("X")
-//                    || logic.isWinGame(board).equalsIgnoreCase("0")
-                    || logic.gameEnded(board))){
-//                ret = false;
+                    || logic.gameEnded(board))) {
                 break;
             }
 
+
+
             do {
-                log.info(player2.getName() + " please give your move ");
-                log.info("Please give a row : ");
-                row2 = scanner.nextInt();
-                log.info("Please give a col: ");
-                col2 = scanner.nextInt();
-//                ret = !((logic.isWinGame(board).equals("X")
-//                        || logic.isWinGame(board).equals("0")
-//                        || logic.gameEnded(board)));
-//
-//                System.out.println("Logika X" + isWinGame(board).equals("X"));
-//                System.out.println("Logika O" + isWinGame(board).equals("0"));
-//                System.out.println("Logika 3" + gameEnded(board));
-//
-//                System.out.println(board.getField(row2, col2));
-//
-//                System.out.println(ret);
-            }
+                    log.info(player2.getName() + " please give your move ");
+                    log.info("Please give a row : ");
+                    row2 = scanner.nextInt();
+                    log.info("Please give a col: ");
+                    col2 = scanner.nextInt();
+              }
             while (playerBetField(row2, col2, player2) == false);
 
             if (logic.isWinGame(board).equalsIgnoreCase("o")
-                    || logic.gameEnded(board)){
-//                ret = false;
+                    || logic.gameEnded(board)) {
                 break;
             }
 
