@@ -1,23 +1,12 @@
 package ticTacToe;
 
-import lombok.extern.slf4j.Slf4j;
-import ticTacToe.game.Game;
-import ticTacToe.game.Logic;
-import ticTacToe.game.Player;
+import static ticTacToe.game.menuConsole.MenuConsoleMain.menuConsoleMain;
 
-@Slf4j
+
 public class Main {
 
-    public static void main(String[] args) throws Exception {
-
-
-        Player player1 = new Player("Janusz", "X");
-        Player player2 = new Player("MATEUSZ", "O");
-
-        Game newGame = new Game(player1, player2);
-
-
-        newGame.playUntilWinner(player1,player2);
+    public static void main(String[] args){
+        menuConsoleMain();
 
 
     }

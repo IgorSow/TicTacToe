@@ -38,7 +38,7 @@ public class Game {
     }
 
 
-    public String playUntilWinner(Player player1, Player player2) throws Exception {
+    public String playUntilWinner() {
         Scanner scanner = new Scanner(System.in);
         int row;
         int col;
