@@ -61,8 +61,6 @@ public class Game {
                 break;
             }
 
-
-
             do {
                     log.info(player2.getName() + " please give your move ");
                     log.info("Please give a row : ");
