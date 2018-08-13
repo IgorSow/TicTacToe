@@ -1,7 +1,11 @@
 package ticTacToe.game;
 
 public class  Logic {
+    private String winningLine;
 
+    public String getWinningLine() {
+        return winningLine = "";
+    }
 
     public String isWinGame(Board board) {
 
@@ -10,24 +14,38 @@ public class  Logic {
             // ROW
             if (board.getBoard()[i][0].equals(board.getBoard()[i][1])
                     && board.getBoard()[i][1].equals(board.getBoard()[i][2])
-                    && !board.getBoard()[i][0].equals(""))
+                    && !board.getBoard()[i][0].equals("")){
+                winningLine = "ROW_" + i;
                 return board.getBoard()[i][0];
+            }
+
+
             //COL
             if (board.getBoard()[0][i].equals(board.getBoard()[1][i])
                     && board.getBoard()[1][i].equals(board.getBoard()[2][i])
-                    && !board.getBoard()[0][i].equals(""))
+                    && !board.getBoard()[0][i].equals("")){
+                winningLine = "COL_" + i;
                 return board.getBoard()[0][i];
+            }
+
+
         }
 
         if (board.getBoard()[0][0].equals(board.getBoard()[1][1])
                 && board.getBoard()[1][1].equals(board.getBoard()[2][2])
-                && !board.getBoard()[0][0].equals(""))
+                && !board.getBoard()[0][0].equals("")){
+            winningLine = "CROSS_1";
             return board.getBoard()[0][0];
+        }
+
 
         if (board.getBoard()[2][0].equals(board.getBoard()[1][1])
                 && board.getBoard()[1][1].equals(board.getBoard()[0][2])
-                && !board.getBoard()[2][0].equals(""))
+                && !board.getBoard()[2][0].equals("")){
+            winningLine = "CROSS_1";
             return board.getBoard()[2][0];
+        }
+
 
         return "No winner";
     }
@@ -45,6 +63,8 @@ public class  Logic {
         }
         return true;
     }
+
+
 
     //toDo czesc 5
 

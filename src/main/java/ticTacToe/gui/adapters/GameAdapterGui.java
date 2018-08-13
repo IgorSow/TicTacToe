@@ -16,6 +16,17 @@ public class GameAdapterGui {
 
     public void runGameGui() {
 
+        Controller.instance.getPANE_MAIN().getChildren().removeAll(
+                Controller.instance.getROW_0(),
+                Controller.instance.getROW_1(),
+                Controller.instance.getROW_2(),
+                Controller.instance.getCOL_0(),
+                Controller.instance.getCOL_1(),
+                Controller.instance.getCOL_2()
+        );
+
+
+
 
         Player player1 = new Player("Jurek", "X");
         Player player2 = new Player("Staszek", "O");
@@ -127,7 +138,7 @@ public class GameAdapterGui {
 
     private void checkWinner(Game game) {
         Controller.instance.getTEXT_WINNER()
-                .setText("The winner is :  \n\b" + logic.isWinGame(game.getBoard()));
+                .setText("The winner is :  \n" + logic.isWinGame(game.getBoard()));
     }
 
 

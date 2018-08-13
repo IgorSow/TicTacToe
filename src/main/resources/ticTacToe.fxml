@@ -8,10 +8,11 @@
 <?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="564.0" prefWidth="465.0" style="-fx-background-color: #ffdd52;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticTacToe.gui.sample.Controller">
+<Pane fx:id="PANE_MAIN" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="564.0" prefWidth="465.0" style="-fx-background-color: #ffdd52;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticTacToe.gui.sample.Controller">
    <children>
       <Button fx:id="BUTTON_20" layoutX="14.0" layoutY="364.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="112.0" textOverrun="CLIP">
          <effect>
@@ -22,7 +23,7 @@
             </MotionBlur>
          </effect>
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="System Bold" size="45.0" />
          </font>
       </Button>
       <Button fx:id="BUTTON_22" layoutX="339.0" layoutY="364.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="112.0" textOverrun="CLIP">
@@ -34,7 +35,7 @@
             </MotionBlur>
          </effect>
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="System Bold" size="45.0" />
          </font>
       </Button>
       <Button fx:id="BUTTON_21" layoutX="177.0" layoutY="364.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="112.0" textOverrun="CLIP">
@@ -46,7 +47,7 @@
             </MotionBlur>
          </effect>
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="System Bold" size="45.0" />
          </font>
       </Button>
       <Button fx:id="BUTTON_10" layoutX="14.0" layoutY="242.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="112.0" textOverrun="CLIP">
@@ -58,7 +59,7 @@
             </MotionBlur>
          </effect>
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="System Bold" size="45.0" />
          </font>
       </Button>
       <Button fx:id="BUTTON_11" layoutX="177.0" layoutY="242.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="112.0" textOverrun="CLIP">
@@ -70,7 +71,7 @@
             </MotionBlur>
          </effect>
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="System Bold" size="45.0" />
          </font>
       </Button>
       <Button fx:id="BUTTON_12" layoutX="339.0" layoutY="242.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="112.0" textOverrun="CLIP">
@@ -82,10 +83,10 @@
             </MotionBlur>
          </effect>
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="System Bold" size="45.0" />
          </font>
       </Button>
-      <Button fx:id="BUTTON_00" layoutX="14.0" layoutY="122.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="112.0" textOverrun="CLIP">
+      <Button fx:id="BUTTON_00" layoutX="14.0" layoutY="123.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="112.0" textOverrun="CLIP">
          <effect>
             <MotionBlur angle="61.47" radius="0.0">
                <input>
@@ -94,7 +95,7 @@
             </MotionBlur>
          </effect>
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="System Bold" size="45.0" />
          </font>
       </Button>
       <Button fx:id="BUTTON_01" layoutX="177.0" layoutY="122.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="112.0" textOverrun="CLIP">
@@ -106,10 +107,10 @@
             </MotionBlur>
          </effect>
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="System Bold" size="45.0" />
          </font>
       </Button>
-      <Button fx:id="BUTTON_02" layoutX="339.0" layoutY="122.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="112.0" style="-fx-background-color: #999900;" textOverrun="CLIP">
+      <Button fx:id="BUTTON_02" layoutX="339.0" layoutY="122.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="112.0" textOverrun="CLIP">
          <effect>
             <MotionBlur angle="61.47" radius="0.0">
                <input>
@@ -118,7 +119,7 @@
             </MotionBlur>
          </effect>
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="System Bold" size="45.0" />
          </font>
       </Button>
       <TextField layoutX="355.0" layoutY="74.0" prefHeight="31.0" prefWidth="103.0" text="Please write your name" />
@@ -130,7 +131,17 @@
       <Button fx:id="BUTTON_PLAYER1" layoutX="200.0" layoutY="48.0" mnemonicParsing="false" style="-fx-background-color: #00ffca;" text="Player X" textOverrun="CLIP" wrapText="true" />
       <Button fx:id="BUTTON_PLAYER2" layoutX="200.0" layoutY="74.0" mnemonicParsing="false" style="-fx-background-color: #21ff00;" text="Player O" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Text fx:id="TEXT_WINNER" layoutX="219.0" layoutY="491.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TEXT WINNER" wrappingWidth="121.6708984375" />
+      <Text fx:id="TEXT_WINNER" layoutX="147.0" layoutY="501.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TEXT WINNER" textAlignment="CENTER" wrappingWidth="178.80224771797657">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Line fx:id="ROW_0" endX="616.0" endY="-242.0" layoutX="-221.0" layoutY="415.0" startX="291.0" startY="-241.0" stroke="#ff0303" strokeDashOffset="100.0" strokeMiterLimit="100.0" strokeWidth="7.0" />
+      <Line fx:id="ROW_2" endX="611.0" endY="-241.0" layoutX="-216.0" layoutY="656.0" startX="291.0" startY="-241.0" stroke="#ff0303" strokeDashOffset="100.0" strokeMiterLimit="100.0" strokeWidth="7.0" />
+      <Line fx:id="ROW_1" endX="616.0" endY="-242.0" layoutX="-217.0" layoutY="534.0" startX="291.0" startY="-241.0" stroke="#ff0303" strokeDashOffset="100.0" strokeMiterLimit="100.0" strokeWidth="7.0" />
+      <Line fx:id="COL_0" endX="737.0" endY="-241.0" layoutX="-667.0" layoutY="656.0" startX="737.0" startY="-482.0" stroke="#ff0303" strokeDashOffset="100.0" strokeMiterLimit="100.0" strokeWidth="7.0" />
+      <Line fx:id="COL_1" endX="737.0" endY="-241.0" layoutX="-505.0" layoutY="656.0" startX="737.0" startY="-482.0" stroke="#ff0303" strokeDashOffset="100.0" strokeMiterLimit="100.0" strokeWidth="7.0" />
+      <Line fx:id="COL_2" endX="733.0" endY="-241.0" layoutX="-338.0" layoutY="656.0" startX="737.0" startY="-482.0" stroke="#ff0303" strokeDashOffset="100.0" strokeMiterLimit="100.0" strokeWidth="7.0" />
    </children>
    <effect>
       <Reflection fraction="0.29" topOpacity="0.43">
