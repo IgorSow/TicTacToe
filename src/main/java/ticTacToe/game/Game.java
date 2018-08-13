@@ -1,7 +1,9 @@
 package ticTacToe.game;
 
 import lombok.extern.slf4j.Slf4j;
+import ticTacToe.gui.sample.Controller;
 
+import java.awt.*;
 import java.util.Scanner;
 
 @Slf4j
@@ -44,39 +46,44 @@ public class Game {
         int col;
         int row2;
         int col2;
+        Controller.instance.getBUTTON_00().setOnAction(event -> {
 
-        boolean ret = true;
+            System.out.println("TEST BUTTON");
+        });
+        boolean ret = false;
         while (ret) {
             do {
+
                 log.info(player1.getName() + " please give your move ");
                 log.info("Please give a row : ");
                 row = scanner.nextInt();
                 log.info("Please give a col : ");
                 col = scanner.nextInt();
-            }
-            while (playerBetField(row, col, player1) == false);
 
-            if ((logic.isWinGame(board).equalsIgnoreCase("X")
-                    || logic.gameEnded(board))) {
-                break;
             }
+                while (playerBetField(row, col, player1) == false) ;
 
-            do {
+                if ((logic.isWinGame(board).equalsIgnoreCase("X")
+                        || logic.gameEnded(board))) {
+                    break;
+                }
+
+                do {
                     log.info(player2.getName() + " please give your move ");
                     log.info("Please give a row : ");
                     row2 = scanner.nextInt();
                     log.info("Please give a col: ");
                     col2 = scanner.nextInt();
-              }
-            while (playerBetField(row2, col2, player2) == false);
+                }
+                while (playerBetField(row2, col2, player2) == false);
 
-            if (logic.isWinGame(board).equalsIgnoreCase("o")
-                    || logic.gameEnded(board)) {
-                break;
+                if (logic.isWinGame(board).equalsIgnoreCase("o")
+                        || logic.gameEnded(board)) {
+                    break;
+                }
+
             }
-
+            log.info("Result : " + logic.isWinGame(board));
+            return logic.isWinGame(board);
         }
-        log.info("Result : " + logic.isWinGame(board));
-        return logic.isWinGame(board);
     }
-}
