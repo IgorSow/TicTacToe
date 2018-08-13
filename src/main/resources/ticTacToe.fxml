@@ -122,11 +122,9 @@
             <Font name="System Bold" size="45.0" />
          </font>
       </Button>
-      <TextField layoutX="355.0" layoutY="74.0" prefHeight="31.0" prefWidth="103.0" text="Please write your name" />
-      <Text layoutX="28.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player O " wrappingWidth="62.98291015625" />
-      <Text layoutX="28.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player X " wrappingWidth="62.98291015625" />
-      <Text fx:id="TEXT_GETNAME_PLAYER1" layoutX="88.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PLAYER X NAME" wrappingWidth="111.99999712407589" />
-      <Text fx:id="TEXT_GETNAME_PLAYER2" layoutX="88.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PLAYER Y NAME" wrappingWidth="112.00000058859587" />
+      <TextField fx:id="TEXTFILD_ENTER" layoutX="339.0" layoutY="48.0" prefHeight="31.0" prefWidth="112.0" />
+      <Text fx:id="TEXT_GETNAME_PLAYER1" layoutX="18.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PLAYER X NAME" wrappingWidth="111.99999712407589" />
+      <Text fx:id="TEXT_GETNAME_PLAYER2" layoutX="18.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PLAYER Y NAME" wrappingWidth="111.99999712407589" />
       <Text layoutX="144.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Let's play on tic Tac Toe" wrappingWidth="178.80224609375" />
       <Button fx:id="BUTTON_PLAYER1" layoutX="200.0" layoutY="48.0" mnemonicParsing="false" style="-fx-background-color: #00ffca;" text="Player X" textOverrun="CLIP" wrapText="true" />
       <Button fx:id="BUTTON_PLAYER2" layoutX="200.0" layoutY="74.0" mnemonicParsing="false" style="-fx-background-color: #21ff00;" text="Player O" />
@@ -144,6 +142,7 @@
       <Line fx:id="COL_2" endX="733.0" endY="-241.0" layoutX="-338.0" layoutY="656.0" startX="737.0" startY="-482.0" stroke="#ff0303" strokeDashOffset="100.0" strokeMiterLimit="100.0" strokeWidth="7.0" />
       <Line fx:id="CROSS_1" endX="565.0" endY="-469.0" layoutX="-170.0" layoutY="884.0" startX="240.0" startY="-710.0" stroke="#ff0303" strokeDashOffset="100.0" strokeMiterLimit="100.0" strokeWidth="7.0" />
       <Line fx:id="CROSS_2" endX="755.9497680664062" endY="-1091.5" layoutX="-356.0" layoutY="1265.0" startX="427.5" startY="-850.0" stroke="#ff0303" strokeDashOffset="100.0" strokeMiterLimit="100.0" strokeWidth="7.0" />
+      <Button fx:id="ACCEPT_NAME" layoutX="377.0" layoutY="83.0" mnemonicParsing="false" text="OK" />
    </children>
    <effect>
       <Reflection fraction="0.29" topOpacity="0.43">

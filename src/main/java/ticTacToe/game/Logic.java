@@ -42,7 +42,7 @@ public class  Logic {
         if (board.getBoard()[2][0].equals(board.getBoard()[1][1])
                 && board.getBoard()[1][1].equals(board.getBoard()[0][2])
                 && !board.getBoard()[2][0].equals("")){
-            winningLine = "CROSS_1";
+            winningLine = "CROSS_2";
             return board.getBoard()[2][0];
         }
 

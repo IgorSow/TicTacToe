@@ -12,7 +12,7 @@ import java.awt.*;
 
 @Slf4j
 public class GameAdapterGui {
-    Logic logic = new Logic();
+    private Logic logic = new Logic();
 
     public void runGameGui() {
 
@@ -141,20 +141,40 @@ public class GameAdapterGui {
     private void checkWinner(Game game) {
 
 
-
         String gameToCheck = logic.isWinGame(game.getBoard());
 
         Controller.instance.getTEXT_WINNER()
                 .setText("The winner is :  \n" + gameToCheck);
 
-        System.out.println(logic.winningLine);
+        log.info(logic.winningLine);
         checkLine();
-
+        turnOffButtonsAfterGameOver(gameToCheck);
 
     }
 
+    private void turnOffButtonsAfterGameOver(String gameToCheck) {
+        if (!("No winner").equalsIgnoreCase(gameToCheck)) {
+            log.info("gra skonczona");
+
+            Controller.instance.getBUTTON_00().setDisable(true);
+            Controller.instance.getBUTTON_01().setDisable(true);
+            Controller.instance.getBUTTON_02().setDisable(true);
+
+            Controller.instance.getBUTTON_10().setDisable(true);
+            Controller.instance.getBUTTON_11().setDisable(true);
+            Controller.instance.getBUTTON_12().setDisable(true);
+
+
+            Controller.instance.getBUTTON_20().setDisable(true);
+            Controller.instance.getBUTTON_21().setDisable(true);
+            Controller.instance.getBUTTON_22().setDisable(true);
+
+        }
+    }
+
     private void checkLine() {
-        if(!logic.winningLine.equalsIgnoreCase("No Winner")){
+        if (!logic.winningLine.equalsIgnoreCase("No Winner")) {
+
             if (logic.winningLine.equalsIgnoreCase("ROW_0")) {
                 Controller.instance.getPANE_MAIN().getChildren().add(
                         Controller.instance.getROW_0());
@@ -183,8 +203,6 @@ public class GameAdapterGui {
             }
 
 
-
-
             if (logic.winningLine.equalsIgnoreCase("CROSS_1")) {
                 Controller.instance.getPANE_MAIN().getChildren().add(
                         Controller.instance.getCROSS_1());
@@ -196,6 +214,8 @@ public class GameAdapterGui {
         }
 
     }
+
+
 
 
 }
