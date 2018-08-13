@@ -9,6 +9,8 @@ import ticTacToe.gui.myButton.OnClickEvent;
 import ticTacToe.gui.sample.Controller;
 
 import java.awt.*;
+import java.util.Collection;
+import java.util.Collections;
 
 @Slf4j
 public class GameAdapterGui {
@@ -47,8 +49,23 @@ public class GameAdapterGui {
             playerChose[0] = player2;
         });
         checkButton(playerChose, game);
+        printNameOnPane();
 
 
+
+    }
+
+    private void printNameOnPane() {
+        Controller.instance.getBUTTON_ACCEPT_NAME().setOnAction(event -> {
+
+            String textToCopy = Controller.instance.getTEXTFIELD_ENTER().getText();
+            if ("Name1".equalsIgnoreCase(Controller.instance.getTEXT_GETNAME_PLAYER1().getText())) {
+                Controller.instance.getTEXT_GETNAME_PLAYER1().setText(textToCopy);
+            } else if ("Name2".equalsIgnoreCase(Controller.instance.getTEXT_GETNAME_PLAYER2().getText())) {
+                Controller.instance.getTEXT_GETNAME_PLAYER2().setText(textToCopy);
+            }
+
+        });
     }
 
     private void checkButton(Player[] playerChose, Game game) {
