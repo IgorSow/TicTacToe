@@ -142,6 +142,8 @@
       <Line fx:id="COL_0" endX="737.0" endY="-241.0" layoutX="-667.0" layoutY="656.0" startX="737.0" startY="-482.0" stroke="#ff0303" strokeDashOffset="100.0" strokeMiterLimit="100.0" strokeWidth="7.0" />
       <Line fx:id="COL_1" endX="737.0" endY="-241.0" layoutX="-505.0" layoutY="656.0" startX="737.0" startY="-482.0" stroke="#ff0303" strokeDashOffset="100.0" strokeMiterLimit="100.0" strokeWidth="7.0" />
       <Line fx:id="COL_2" endX="733.0" endY="-241.0" layoutX="-338.0" layoutY="656.0" startX="737.0" startY="-482.0" stroke="#ff0303" strokeDashOffset="100.0" strokeMiterLimit="100.0" strokeWidth="7.0" />
+      <Line fx:id="CROSS_1" endX="565.0" endY="-469.0" layoutX="-170.0" layoutY="884.0" startX="240.0" startY="-710.0" stroke="#ff0303" strokeDashOffset="100.0" strokeMiterLimit="100.0" strokeWidth="7.0" />
+      <Line fx:id="CROSS_2" endX="755.9497680664062" endY="-1091.5" layoutX="-356.0" layoutY="1265.0" startX="427.5" startY="-850.0" stroke="#ff0303" strokeDashOffset="100.0" strokeMiterLimit="100.0" strokeWidth="7.0" />
    </children>
    <effect>
       <Reflection fraction="0.29" topOpacity="0.43">

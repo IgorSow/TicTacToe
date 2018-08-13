@@ -63,6 +63,10 @@ public class Controller implements Initializable {
     @FXML
     Line COL_2;
 
+    @FXML
+    Line CROSS_1;
+    @FXML
+    Line CROSS_2;
 
 
     public static Controller getInstance() {
@@ -144,6 +148,15 @@ public class Controller implements Initializable {
     public Line getCOL_2() {
         return COL_2;
     }
+
+    public Line getCROSS_1() {
+        return CROSS_1;
+    }
+
+    public Line getCROSS_2() {
+        return CROSS_2;
+    }
+
 
     public void initialize(URL location, ResourceBundle resources) {
 //
