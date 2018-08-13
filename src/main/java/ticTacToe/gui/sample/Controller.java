@@ -68,6 +68,17 @@ public class Controller implements Initializable {
     @FXML
     Line CROSS_2;
 
+    @FXML
+    TextField TEXTFIELD_ENTER;
+    @FXML
+    Button BUTTON_ACCEPT_NAME;
+    @FXML
+    Text TEXT_GETNAME_PLAYER1;
+    @FXML
+    Text TEXT_GETNAME_PLAYER2;
+    @FXML
+    Button BUTTON_NEW_GAME;
+
 
     public static Controller getInstance() {
         return instance;
@@ -157,6 +168,25 @@ public class Controller implements Initializable {
         return CROSS_2;
     }
 
+    public TextField getTEXTFIELD_ENTER() {
+        return TEXTFIELD_ENTER;
+    }
+
+    public Button getBUTTON_ACCEPT_NAME() {
+        return BUTTON_ACCEPT_NAME;
+    }
+
+    public Text getTEXT_GETNAME_PLAYER1() {
+        return TEXT_GETNAME_PLAYER1;
+    }
+
+    public Text getTEXT_GETNAME_PLAYER2() {
+        return TEXT_GETNAME_PLAYER2;
+    }
+
+    public Button getBUTTON_NEW_GAME() {
+        return BUTTON_NEW_GAME;
+    }
 
     public void initialize(URL location, ResourceBundle resources) {
 //
@@ -192,6 +222,15 @@ public class Controller implements Initializable {
         GameAdapterGui gameAdapterGui = new GameAdapterGui();
         gameAdapterGui.runGameGui();
 
+
+        Controller.instance.getBUTTON_NEW_GAME().setOnAction(event -> {
+            GameAdapterGui gameAdapterGui2 = new GameAdapterGui();
+
+            gameAdapterGui2.runGameGui();
+        });
+
+    }
+
 //
 //        Main.main();
 
@@ -215,7 +254,7 @@ public class Controller implements Initializable {
 //
 //        BUTTON1.setOnAction();
 
-    }
-
-
 }
+
+
+
