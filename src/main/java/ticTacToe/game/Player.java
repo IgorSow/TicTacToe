@@ -10,6 +10,10 @@ public class Player {
     private String name;
     private String sign;
 
+    public Player(){
+
+    }
+
 
     public Player(String name, String sign) {
         this.name = name;

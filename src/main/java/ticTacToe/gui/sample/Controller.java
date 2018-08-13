@@ -36,6 +36,12 @@ public class Controller implements Initializable {
     @FXML
     Button BUTTON_22;
 
+    @FXML
+    Button BUTTON_PLAYER1;
+    @FXML
+    Button BUTTON_PLAYER2;
+
+
 
     public static Controller getInstance() {
         return instance;
@@ -77,21 +83,29 @@ public class Controller implements Initializable {
         return BUTTON_22;
     }
 
+    public Button getBUTTON_PLAYER1() {
+        return BUTTON_PLAYER1;
+    }
+
+    public Button getBUTTON_PLAYER2() {
+        return BUTTON_PLAYER2;
+    }
+
     public void initialize(URL location, ResourceBundle resources) {
 //
 //
 
-        MyButton button_00 = new MyButton(BUTTON_00, 0, 0);
-        MyButton button_01 = new MyButton(BUTTON_01, 0, 1);
-        MyButton button_02 = new MyButton(BUTTON_02, 0, 2);
-
-        MyButton button_10 = new MyButton(BUTTON_10, 1, 0);
-        MyButton button_11 = new MyButton(BUTTON_11, 1, 1);
-        MyButton button_12 = new MyButton(BUTTON_12, 1, 2);
-
-        MyButton button_20 = new MyButton(BUTTON_20, 2, 0);
-        MyButton button_21 = new MyButton(BUTTON_21, 2, 1);
-        MyButton button_22 = new MyButton(BUTTON_22, 2, 2);
+//        MyButton button_00 = new MyButton(BUTTON_00, 0, 0);
+//        MyButton button_01 = new MyButton(BUTTON_01, 0, 1);
+//        MyButton button_02 = new MyButton(BUTTON_02, 0, 2);
+//
+//        MyButton button_10 = new MyButton(BUTTON_10, 1, 0);
+//        MyButton button_11 = new MyButton(BUTTON_11, 1, 1);
+//        MyButton button_12 = new MyButton(BUTTON_12, 1, 2);
+//
+//        MyButton button_20 = new MyButton(BUTTON_20, 2, 0);
+//        MyButton button_21 = new MyButton(BUTTON_21, 2, 1);
+//        MyButton button_22 = new MyButton(BUTTON_22, 2, 2);
 //
 //
 //
@@ -104,11 +118,14 @@ public class Controller implements Initializable {
 //                System.out.println("y = " + y);
 //            }
 //        };
-        System.out.println(" TEST");
+        System.out.println(" Rozpoczeta Inicialize");
 
         Controller.instance = this;
 
-        Main.main();
+        GameAdapterGui.runGameGui();
+
+//
+//        Main.main();
 
 //        button.onClick(onClickEvent);
 //        //button1.onClick(onClickEvent);
