@@ -4,7 +4,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import ticTacToe.Main;
 import ticTacToe.game.menuConsole.MenuConsoleMain;
 import ticTacToe.gui.adapters.*;
@@ -40,6 +42,9 @@ public class Controller implements Initializable {
     Button BUTTON_PLAYER1;
     @FXML
     Button BUTTON_PLAYER2;
+
+    @FXML
+    Text TEXT_WINNER;
 
 
 
@@ -91,6 +96,10 @@ public class Controller implements Initializable {
         return BUTTON_PLAYER2;
     }
 
+    public Text getTEXT_WINNER() {
+        return TEXT_WINNER;
+    }
+
     public void initialize(URL location, ResourceBundle resources) {
 //
 //
@@ -122,7 +131,8 @@ public class Controller implements Initializable {
 
         Controller.instance = this;
 
-        GameAdapterGui.runGameGui();
+        GameAdapterGui gameAdapterGui = new GameAdapterGui();
+        gameAdapterGui.runGameGui();
 
 //
 //        Main.main();

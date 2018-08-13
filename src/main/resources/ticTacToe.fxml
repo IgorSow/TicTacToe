@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="465.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticTacToe.gui.sample.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="564.0" prefWidth="465.0" style="-fx-background-color: #ffdd52;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticTacToe.gui.sample.Controller">
    <children>
       <Button fx:id="BUTTON_20" layoutX="14.0" layoutY="364.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="112.0" textOverrun="CLIP">
          <effect>
@@ -109,7 +109,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="BUTTON_02" layoutX="339.0" layoutY="122.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="112.0" textOverrun="CLIP">
+      <Button fx:id="BUTTON_02" layoutX="339.0" layoutY="122.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="112.0" style="-fx-background-color: #999900;" textOverrun="CLIP">
          <effect>
             <MotionBlur angle="61.47" radius="0.0">
                <input>
@@ -127,8 +127,10 @@
       <Text fx:id="TEXT_GETNAME_PLAYER1" layoutX="88.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PLAYER X NAME" wrappingWidth="111.99999712407589" />
       <Text fx:id="TEXT_GETNAME_PLAYER2" layoutX="88.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PLAYER Y NAME" wrappingWidth="112.00000058859587" />
       <Text layoutX="144.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Let's play on tic Tac Toe" wrappingWidth="178.80224609375" />
-      <Button fx:id="BUTTON_PLAYER1" layoutX="200.0" layoutY="48.0" mnemonicParsing="false" text="BUTTON_PLAYER1" />
-      <Button fx:id="BUTTON_PLAYER2" layoutX="200.0" layoutY="74.0" mnemonicParsing="false" text="BUTTON_PLAYER1" />
+      <Button fx:id="BUTTON_PLAYER1" layoutX="200.0" layoutY="48.0" mnemonicParsing="false" style="-fx-background-color: #00ffca;" text="Player X" textOverrun="CLIP" wrapText="true" />
+      <Button fx:id="BUTTON_PLAYER2" layoutX="200.0" layoutY="74.0" mnemonicParsing="false" style="-fx-background-color: #21ff00;" text="Player O" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="TEXT_WINNER" layoutX="219.0" layoutY="491.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TEXT WINNER" wrappingWidth="121.6708984375" />
    </children>
    <effect>
       <Reflection fraction="0.29" topOpacity="0.43">

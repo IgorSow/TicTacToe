@@ -2,15 +2,19 @@ package ticTacToe.gui.adapters;
 
 import lombok.extern.slf4j.Slf4j;
 import ticTacToe.game.Game;
+import ticTacToe.game.Logic;
 import ticTacToe.game.Player;
 import ticTacToe.gui.myButton.MyButton;
 import ticTacToe.gui.myButton.OnClickEvent;
 import ticTacToe.gui.sample.Controller;
 
+import java.awt.*;
+
 @Slf4j
 public class GameAdapterGui {
+    Logic logic = new Logic();
 
-    public static void runGameGui() {
+    public void runGameGui() {
 
 
         Player player1 = new Player("Jurek", "X");
@@ -29,12 +33,18 @@ public class GameAdapterGui {
         Controller.instance.getBUTTON_PLAYER2().setOnAction(event -> {
             playerChose[0] = player2;
         });
+        checkButton(playerChose, game);
 
+
+    }
+
+    private void checkButton(Player[] playerChose, Game game) {
         // ROW 0
         Controller.instance.getBUTTON_00().setOnAction(event -> {
             if (Controller.instance.getBUTTON_00().getText().equalsIgnoreCase("")) {
                 game.playerBetField(0, 0, playerChose[0]);
                 Controller.instance.getBUTTON_00().setText(playerChose[0].getSign());
+                checkWinner(game);
             }
 
         });
@@ -43,6 +53,7 @@ public class GameAdapterGui {
             if (Controller.instance.getBUTTON_01().getText().equalsIgnoreCase("")) {
                 game.playerBetField(0, 1, playerChose[0]);
                 Controller.instance.getBUTTON_01().setText(playerChose[0].getSign());
+                checkWinner(game);
             }
 
         });
@@ -51,12 +62,10 @@ public class GameAdapterGui {
             if (Controller.instance.getBUTTON_02().getText().equalsIgnoreCase("")) {
                 game.playerBetField(0, 2, playerChose[0]);
                 Controller.instance.getBUTTON_02().setText(playerChose[0].getSign());
+                checkWinner(game);
             }
 
         });
-
-
-
 
 
         //ROW 1
@@ -64,6 +73,7 @@ public class GameAdapterGui {
             if (Controller.instance.getBUTTON_10().getText().equalsIgnoreCase("")) {
                 game.playerBetField(1, 0, playerChose[0]);
                 Controller.instance.getBUTTON_10().setText(playerChose[0].getSign());
+                checkWinner(game);
             }
 
         });
@@ -72,6 +82,8 @@ public class GameAdapterGui {
             if (Controller.instance.getBUTTON_11().getText().equalsIgnoreCase("")) {
                 game.playerBetField(1, 1, playerChose[0]);
                 Controller.instance.getBUTTON_11().setText(playerChose[0].getSign());
+                checkWinner(game);
+
             }
 
         });
@@ -80,13 +92,10 @@ public class GameAdapterGui {
             if (Controller.instance.getBUTTON_12().getText().equalsIgnoreCase("")) {
                 game.playerBetField(1, 2, playerChose[0]);
                 Controller.instance.getBUTTON_12().setText(playerChose[0].getSign());
+                checkWinner(game);
             }
 
         });
-
-
-
-
 
 
         //ROW 2
@@ -94,6 +103,7 @@ public class GameAdapterGui {
             if (Controller.instance.getBUTTON_20().getText().equalsIgnoreCase("")) {
                 game.playerBetField(2, 0, playerChose[0]);
                 Controller.instance.getBUTTON_20().setText(playerChose[0].getSign());
+                checkWinner(game);
             }
 
         });
@@ -101,6 +111,7 @@ public class GameAdapterGui {
             if (Controller.instance.getBUTTON_21().getText().equalsIgnoreCase("")) {
                 game.playerBetField(2, 1, playerChose[0]);
                 Controller.instance.getBUTTON_21().setText(playerChose[0].getSign());
+                checkWinner(game);
             }
 
         });
@@ -108,12 +119,18 @@ public class GameAdapterGui {
             if (Controller.instance.getBUTTON_22().getText().equalsIgnoreCase("")) {
                 game.playerBetField(2, 2, playerChose[0]);
                 Controller.instance.getBUTTON_22().setText(playerChose[0].getSign());
+                checkWinner(game);
             }
 
         });
-
-
     }
+
+    private void checkWinner(Game game) {
+        Controller.instance.getTEXT_WINNER()
+                .setText("The winner is :  \n\b" + logic.isWinGame(game.getBoard()));
+    }
+
+
 }
 
 
