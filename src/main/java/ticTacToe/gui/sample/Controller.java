@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import ticTacToe.Main;
 import ticTacToe.game.menuConsole.MenuConsoleMain;
@@ -18,6 +19,8 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
     public static Controller instance = null;
+    @FXML
+    Pane PANE_MAIN;
 
     @FXML
     Button BUTTON_00;
@@ -46,10 +49,28 @@ public class Controller implements Initializable {
     @FXML
     Text TEXT_WINNER;
 
+    @FXML
+    Line ROW_0;
+    @FXML
+    Line ROW_1;
+    @FXML
+    Line ROW_2;
+
+    @FXML
+    Line COL_0;
+    @FXML
+    Line COL_1;
+    @FXML
+    Line COL_2;
+
 
 
     public static Controller getInstance() {
         return instance;
+    }
+
+    public Pane getPANE_MAIN() {
+        return PANE_MAIN;
     }
 
     public Button getBUTTON_00() {
@@ -98,6 +119,30 @@ public class Controller implements Initializable {
 
     public Text getTEXT_WINNER() {
         return TEXT_WINNER;
+    }
+
+    public Line getROW_0() {
+        return ROW_0;
+    }
+
+    public Line getROW_1() {
+        return ROW_1;
+    }
+
+    public Line getROW_2() {
+        return ROW_2;
+    }
+
+    public Line getCOL_0() {
+        return COL_0;
+    }
+
+    public Line getCOL_1() {
+        return COL_1;
+    }
+
+    public Line getCOL_2() {
+        return COL_2;
     }
 
     public void initialize(URL location, ResourceBundle resources) {
