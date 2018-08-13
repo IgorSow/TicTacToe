@@ -15,6 +15,9 @@ import java.util.Collections;
 @Slf4j
 public class GameAdapterGui {
     private Logic logic = new Logic();
+    private final Player[] playerChose = {new Player()};
+    private Player player1 = new Player("Name1", "X");
+    private Player player2 = new Player("Name2", "O");
 
     public void runGameGui() {
 
@@ -32,9 +35,8 @@ public class GameAdapterGui {
         );
 
 
-        Player player1 = new Player("Jurek", "X");
-        Player player2 = new Player("Staszek", "O");
-        final Player[] playerChose = {new Player()};
+
+
         playerChose[0] = player1;
         Game game = new Game(player1, player2);
         System.out.println("Gra juz dziala");
@@ -52,17 +54,20 @@ public class GameAdapterGui {
         printNameOnPane();
 
 
-
     }
 
     private void printNameOnPane() {
         Controller.instance.getBUTTON_ACCEPT_NAME().setOnAction(event -> {
 
-            String textToCopy = Controller.instance.getTEXTFIELD_ENTER().getText();
+            String takenPlayerName = Controller.instance.getTEXTFIELD_ENTER().getText();
             if ("Name1".equalsIgnoreCase(Controller.instance.getTEXT_GETNAME_PLAYER1().getText())) {
-                Controller.instance.getTEXT_GETNAME_PLAYER1().setText(textToCopy);
+                player1.setName(takenPlayerName);
+                Controller.instance.getTEXT_GETNAME_PLAYER1().setText(player1.getName());
+
             } else if ("Name2".equalsIgnoreCase(Controller.instance.getTEXT_GETNAME_PLAYER2().getText())) {
-                Controller.instance.getTEXT_GETNAME_PLAYER2().setText(textToCopy);
+                player2.setName(takenPlayerName);
+                Controller.instance.getTEXT_GETNAME_PLAYER2().setText(player2.getName());
+
             }
 
         });
@@ -75,6 +80,7 @@ public class GameAdapterGui {
                 game.playerBetField(0, 0, playerChose[0]);
                 Controller.instance.getBUTTON_00().setText(playerChose[0].getSign());
                 checkWinner(game);
+                replacePlayerOnActualMove();
             }
 
         });
@@ -83,7 +89,9 @@ public class GameAdapterGui {
             if (Controller.instance.getBUTTON_01().getText().equalsIgnoreCase("")) {
                 game.playerBetField(0, 1, playerChose[0]);
                 Controller.instance.getBUTTON_01().setText(playerChose[0].getSign());
+
                 checkWinner(game);
+                replacePlayerOnActualMove();
             }
 
         });
@@ -92,7 +100,9 @@ public class GameAdapterGui {
             if (Controller.instance.getBUTTON_02().getText().equalsIgnoreCase("")) {
                 game.playerBetField(0, 2, playerChose[0]);
                 Controller.instance.getBUTTON_02().setText(playerChose[0].getSign());
+
                 checkWinner(game);
+                replacePlayerOnActualMove();
             }
 
         });
@@ -103,7 +113,9 @@ public class GameAdapterGui {
             if (Controller.instance.getBUTTON_10().getText().equalsIgnoreCase("")) {
                 game.playerBetField(1, 0, playerChose[0]);
                 Controller.instance.getBUTTON_10().setText(playerChose[0].getSign());
+
                 checkWinner(game);
+                replacePlayerOnActualMove();
             }
 
         });
@@ -113,6 +125,7 @@ public class GameAdapterGui {
                 game.playerBetField(1, 1, playerChose[0]);
                 Controller.instance.getBUTTON_11().setText(playerChose[0].getSign());
                 checkWinner(game);
+                replacePlayerOnActualMove();
 
             }
 
@@ -123,6 +136,7 @@ public class GameAdapterGui {
                 game.playerBetField(1, 2, playerChose[0]);
                 Controller.instance.getBUTTON_12().setText(playerChose[0].getSign());
                 checkWinner(game);
+                replacePlayerOnActualMove();
             }
 
         });
@@ -134,6 +148,7 @@ public class GameAdapterGui {
                 game.playerBetField(2, 0, playerChose[0]);
                 Controller.instance.getBUTTON_20().setText(playerChose[0].getSign());
                 checkWinner(game);
+                replacePlayerOnActualMove();
             }
 
         });
@@ -142,6 +157,7 @@ public class GameAdapterGui {
                 game.playerBetField(2, 1, playerChose[0]);
                 Controller.instance.getBUTTON_21().setText(playerChose[0].getSign());
                 checkWinner(game);
+                replacePlayerOnActualMove();
             }
 
         });
@@ -150,6 +166,7 @@ public class GameAdapterGui {
                 game.playerBetField(2, 2, playerChose[0]);
                 Controller.instance.getBUTTON_22().setText(playerChose[0].getSign());
                 checkWinner(game);
+                replacePlayerOnActualMove();
             }
 
         });
@@ -232,7 +249,15 @@ public class GameAdapterGui {
 
     }
 
+    private void replacePlayerOnActualMove() {
+        if (playerChose[0].getSign().equalsIgnoreCase("X")){
+            playerChose[0] = player2;
 
+        }
+        else if (playerChose[0].getSign().equalsIgnoreCase("O")){
+            playerChose[0] = player1;
+        }
+    }
 
 
 }
