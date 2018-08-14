@@ -22,22 +22,18 @@ public class MenuConsoleMain {
         log.info("2 - Player vs Computer");
 
 
-        Controller.instance.getBUTTON_00().setOnAction(event -> {
-
-            System.out.println("TEST BUTTON");
-        });
-
         int chosenOption = scanner.nextInt();
 
-//        while (false)
-//        switch (chosenOption) {
-//            case 1:
-//                menuPlayerVsPlayerConsole(gameStatistic);
-//                break;
-//
-//            case 2:
-//                menuPlayerVsComputer();
-//        }
+        while (true)
+        switch (chosenOption) {
+            case 1:
+                menuPlayerVsPlayerConsole(gameStatistic);
+                break;
+
+            case 2:
+                menuPlayerVsComputer();
+                break;
+        }
 
     }
 

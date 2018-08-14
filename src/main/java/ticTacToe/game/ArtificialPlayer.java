@@ -2,16 +2,16 @@ package ticTacToe.game;
 
 import java.util.Random;
 
-public class ArtificalPlayer implements Participant {
+public class ArtificialPlayer implements Participant {
     private String name;
     private String sign;
 
-    public ArtificalPlayer(){
+    public ArtificialPlayer(){
 
     }
 
-    public ArtificalPlayer(String sign) {
-        this.name = "Player Computer";
+    public ArtificialPlayer(String sign) {
+        this.name = "Computer";
         this.sign = sign;
     }
 
@@ -73,17 +73,17 @@ public class ArtificalPlayer implements Participant {
 
     @Override
     public String getSign() {
-        return null;
+        return sign;
     }
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     @Override
     public void setName(String name) {
-
+        this.name = name;
     }
 
     @Override

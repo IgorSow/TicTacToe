@@ -215,7 +215,7 @@ public class Controller implements Initializable {
 //                System.out.println("y = " + y);
 //            }
 //        };
-        System.out.println(" Rozpoczeta Inicialize");
+        System.out.println("Go to window");
 
         Controller.instance = this;
 
@@ -224,9 +224,7 @@ public class Controller implements Initializable {
 
 
         Controller.instance.getBUTTON_NEW_GAME().setOnAction(event -> {
-            Controller.instance = this;
-            GameAdapterGui gameAdapterGui2 = new GameAdapterGui();
-            gameAdapterGui2.runGameGui();
+            BUTTON_NEW_GAME.setText("We working at it :)");
         });
 
     }

@@ -8,23 +8,23 @@ import java.util.Scanner;
 
 @Slf4j
 public class Game {
-    private Player player1;
-    private Player player2;
+    private Participant player1;
+    private Participant player2;
     private Board board;
     private Logic logic;
 
-    public Game(Player player1, Player player2) {
+    public Game(Participant player1, Participant player2) {
         this.player1 = player1;
         this.player2 = player2;
         this.logic = new Logic();
         this.board = new Board();
     }
 
-    public Player getPlayer1() {
+    public Participant getPlayer1() {
         return player1;
     }
 
-    public Player getPlayer2() {
+    public Participant getPlayer2() {
         return player2;
     }
 
@@ -32,7 +32,7 @@ public class Game {
         return board;
     }
 
-    public boolean playerBetField(int row, int col, Player player) {
+    public boolean playerBetField(int row, int col, Participant player) {
 
         String playerSign = player.getSign();
 
@@ -46,11 +46,8 @@ public class Game {
         int col;
         int row2;
         int col2;
-        Controller.instance.getBUTTON_00().setOnAction(event -> {
 
-            System.out.println("TEST BUTTON");
-        });
-        boolean ret = false;
+        boolean ret = true;
         while (ret) {
             do {
 
@@ -60,30 +57,34 @@ public class Game {
                 log.info("Please give a col : ");
                 col = scanner.nextInt();
 
-            }
-                while (playerBetField(row, col, player1) == false) ;
-
-                if ((logic.isWinGame(board).equalsIgnoreCase("X")
-                        || logic.gameEnded(board))) {
-                    break;
-                }
-
-                do {
-                    log.info(player2.getName() + " please give your move ");
-                    log.info("Please give a row : ");
-                    row2 = scanner.nextInt();
-                    log.info("Please give a col: ");
-                    col2 = scanner.nextInt();
-                }
-                while (playerBetField(row2, col2, player2) == false);
-
-                if (logic.isWinGame(board).equalsIgnoreCase("o")
-                        || logic.gameEnded(board)) {
-                    break;
-                }
 
             }
-            log.info("Result : " + logic.isWinGame(board));
-            return logic.isWinGame(board);
+            while (playerBetField(row, col, player1) == false);
+            PrintBoard.printBoard(board);
+            if ((logic.isWinGame(board).equalsIgnoreCase("X")
+                    || logic.gameEnded(board))) {
+
+                break;
+            }
+
+            do {
+                log.info(player2.getName() + " please give your move ");
+                log.info("Please give a row : ");
+                row2 = scanner.nextInt();
+                log.info("Please give a col: ");
+                col2 = scanner.nextInt();
+
+            }
+            while (playerBetField(row2, col2, player2) == false);
+            PrintBoard.printBoard(board);
+            if (logic.isWinGame(board).equalsIgnoreCase("o")
+                    || logic.gameEnded(board)) {
+
+                break;
+            }
+
         }
+        log.info("Result : " + logic.isWinGame(board));
+        return logic.isWinGame(board);
     }
+}
