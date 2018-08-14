@@ -22,19 +22,7 @@ public class ArtificialPlayerTest {
 
     @Test
      public void  shouldCheckItIsPossibleToInputPlayerAndArtificialPlayerInTheSameGame(){
-        //given
-        Participant player2 = new Player("Janusz","X");
-        Participant computer = new ArtificialPlayer("O");
 
-        Game game = new Game(computer,player2);
-
-
-        log.info(game.getPlayer1().getName());
-        log.info(game.getPlayer2().getName());
-
-        log.info(game.getPlayer1().getSign());
-        log.info(game.getPlayer2().getSign());
-        //then
 
     }
 

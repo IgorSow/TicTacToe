@@ -87,4 +87,44 @@ public class Game {
         log.info("Result : " + logic.isWinGame(board));
         return logic.isWinGame(board);
     }
+
+    public String playUntilWinnerVsComputer() {
+
+
+
+        Scanner scanner = new Scanner(System.in);
+        int row;
+        int col;
+        boolean ret = true;
+        while (ret) {
+            do {
+
+                log.info(player1.getName() + " please give your move ");
+                log.info("Please give a row : ");
+                row = scanner.nextInt();
+                log.info("Please give a col : ");
+                col = scanner.nextInt();
+
+
+            }
+            while (playerBetField(row, col, player1) == false);
+            PrintBoard.printBoard(board);
+            if ((logic.isWinGame(board).equalsIgnoreCase(player1.getSign())
+                    || logic.gameEnded(board))) {
+                break;
+            }
+
+
+
+            ArtificialPlayerLogic.computerMove(board, player2.getSign());
+            if ((logic.isWinGame(board).equalsIgnoreCase(player2.getSign())
+                    || logic.gameEnded(board))) {
+                break;
+            }
+            PrintBoard.printBoard(board);
+        }
+        PrintBoard.printBoard(board);
+        log.info("Result : " + logic.isWinGame(board));
+        return logic.isWinGame(board);
+    }
 }
