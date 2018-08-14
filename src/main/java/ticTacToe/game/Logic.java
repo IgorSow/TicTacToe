@@ -1,11 +1,11 @@
 package ticTacToe.game;
 
 public class  Logic {
-    public String winningLine = "No Winner";
+    private String winningLine = "No Winner";
 
-//    public String getWinningLine() {
-//        return winningLine = "";
-//    }
+    public String getWinningLine() {
+        return winningLine;
+    }
 
     public String isWinGame(Board board) {
 

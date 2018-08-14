@@ -15,7 +15,6 @@ import ticTacToe.game.Board;
 import ticTacToe.game.Game;
 import ticTacToe.game.Player;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class GameTest {
 

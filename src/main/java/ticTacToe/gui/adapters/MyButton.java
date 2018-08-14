@@ -4,7 +4,7 @@ import javafx.scene.control.*;
 
 public class MyButton {
 
-    javafx.scene.control.Button button;
+    Button button;
     int x;
     int y;
     OnClickEvent onClickEvent = null;

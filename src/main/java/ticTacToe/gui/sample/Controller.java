@@ -224,8 +224,8 @@ public class Controller implements Initializable {
 
 
         Controller.instance.getBUTTON_NEW_GAME().setOnAction(event -> {
+            Controller.instance = this;
             GameAdapterGui gameAdapterGui2 = new GameAdapterGui();
-
             gameAdapterGui2.runGameGui();
         });
 

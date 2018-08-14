@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.Scanner;
 
 @Slf4j
-public class Player {
+public class Player implements Participant{
 
     private String name;
     private String sign;
@@ -20,16 +20,22 @@ public class Player {
         this.sign = sign;
     }
 
+    @Override
     public String getSign() {
         return sign;
     }
-
+    @Override
     public String getName() {
         return name;
     }
-
+    @Override
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public void setSign(String sign) {
+        this.sign = sign;
     }
 
     public String[] returnCordinates(){

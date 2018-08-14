@@ -41,7 +41,7 @@ public class GameAdapterGui {
         Game game = new Game(player1, player2);
         System.out.println("Gra juz dziala");
 
-        //WYBIERAMY KTÓRY GRACZ BEDZIE ZAGRYWAŁ
+        //WE ARE CHOOSING WHO WILL START
 
         Controller.instance.getBUTTON_PLAYER1().setOnAction(event -> {
             playerChose[0] = player1;
@@ -180,7 +180,7 @@ public class GameAdapterGui {
         Controller.instance.getTEXT_WINNER()
                 .setText("The winner is :  \n" + gameToCheck);
 
-        log.info(logic.winningLine);
+        log.info(logic.getWinningLine());
         checkLine();
         turnOffButtonsAfterGameOver(gameToCheck);
 
@@ -207,41 +207,41 @@ public class GameAdapterGui {
     }
 
     private void checkLine() {
-        if (!logic.winningLine.equalsIgnoreCase("No Winner")) {
+        if (!logic.getWinningLine().equalsIgnoreCase("No Winner")) {
 
-            if (logic.winningLine.equalsIgnoreCase("ROW_0")) {
+            if (logic.getWinningLine().equalsIgnoreCase("ROW_0")) {
                 Controller.instance.getPANE_MAIN().getChildren().add(
                         Controller.instance.getROW_0());
             }
-            if (logic.winningLine.equalsIgnoreCase("ROW_1")) {
+            if (logic.getWinningLine().equalsIgnoreCase("ROW_1")) {
                 Controller.instance.getPANE_MAIN().getChildren().add(
                         Controller.instance.getROW_1());
             }
-            if (logic.winningLine.equalsIgnoreCase("ROW_2")) {
+            if (logic.getWinningLine().equalsIgnoreCase("ROW_2")) {
                 Controller.instance.getPANE_MAIN().getChildren().add(
                         Controller.instance.getROW_2());
             }
 
 
-            if (logic.winningLine.equalsIgnoreCase("COL_0")) {
+            if (logic.getWinningLine().equalsIgnoreCase("COL_0")) {
                 Controller.instance.getPANE_MAIN().getChildren().add(
                         Controller.instance.getCOL_0());
             }
-            if (logic.winningLine.equalsIgnoreCase("COL_1")) {
+            if (logic.getWinningLine().equalsIgnoreCase("COL_1")) {
                 Controller.instance.getPANE_MAIN().getChildren().add(
                         Controller.instance.getCOL_1());
             }
-            if (logic.winningLine.equalsIgnoreCase("COL_2")) {
+            if (logic.getWinningLine().equalsIgnoreCase("COL_2")) {
                 Controller.instance.getPANE_MAIN().getChildren().add(
                         Controller.instance.getCOL_2());
             }
 
 
-            if (logic.winningLine.equalsIgnoreCase("CROSS_1")) {
+            if (logic.getWinningLine().equalsIgnoreCase("CROSS_1")) {
                 Controller.instance.getPANE_MAIN().getChildren().add(
                         Controller.instance.getCROSS_1());
             }
-            if (logic.winningLine.equalsIgnoreCase("CROSS_2")) {
+            if (logic.getWinningLine().equalsIgnoreCase("CROSS_2")) {
                 Controller.instance.getPANE_MAIN().getChildren().add(
                         Controller.instance.getCROSS_2());
             }
