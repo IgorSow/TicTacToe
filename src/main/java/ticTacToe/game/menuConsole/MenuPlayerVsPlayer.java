@@ -9,8 +9,9 @@ import java.util.Scanner;
 @Slf4j
 public class MenuPlayerVsPlayer {
 
-    public static void menuPlayerVsPlayerConsole(GameStatistic gameStatistic) {
+    public static void menuPlayerVsPlayerConsole() {
         Scanner scanner = new Scanner(System.in);
+        GameStatistic gameStatistic = new GameStatistic();
 
         log.info("You will starting new game Player vs Player");
         log.info("Please write name for players");
@@ -18,6 +19,9 @@ public class MenuPlayerVsPlayer {
         String player1Name = scanner.nextLine();
         log.info("O - Player name: ");
         String player2Name = scanner.nextLine();
+
+        boolean currentMenu = true;
+        while (currentMenu) {
 
 
         Player player1 = new Player(player1Name, "X");
@@ -28,8 +32,6 @@ public class MenuPlayerVsPlayer {
         gameStatistic.setNamePlayer1(player1Name);
         gameStatistic.setNamePlayer2(player2Name);
 
-
-        while (true) {
             log.info("Let's get start !");
             log.info("1 - start!");
             log.info("2 - show statistic");
@@ -47,7 +49,13 @@ public class MenuPlayerVsPlayer {
                 case 2:
                     gameStatistic.printStatistic();
                     break;
+
+                case 3:
+                    currentMenu = false;
+                    break;
+
             }
         }
+
     }
 }
