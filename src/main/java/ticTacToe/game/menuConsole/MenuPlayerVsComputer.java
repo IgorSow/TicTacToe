@@ -28,18 +28,23 @@ public class MenuPlayerVsComputer {
 
 
         establishSigns();
-        
-        Participant player2 = new Player(playerName, chooseOfPlayerSign);
+
+
+        Participant player1 = new Player(playerName, chooseOfPlayerSign);
         Participant computer = new ArtificialPlayer(chooseOfComputerSign);
 
         boolean currentMenu = true;
         while (currentMenu) {
 
 
-            Game game = new Game(player2, computer);
+            Game game = new Game(player1, computer);
 
-            gameStatistic.setNamePlayer1(playerName);
+            gameStatistic.setNamePlayer1(player1.getName());
+            gameStatistic.setSignPlayer1(player1.getSign());
+
+
             gameStatistic.setNamePlayer2(computer.getName());
+            gameStatistic.setSignPlayer2(computer.getSign());
 
             log.info("Let's get start !");
             log.info("1 - start!");

@@ -6,6 +6,9 @@ import lombok.extern.slf4j.Slf4j;
 public class GameStatistic {
     private String namePlayer1;
     private String namePlayer2;
+    private String signPlayer1;
+    private String signPlayer2;
+
     private int valuePlayer1 = 0;
     private int valuePlayer2 = 0;
 
@@ -28,6 +31,22 @@ public class GameStatistic {
         this.namePlayer2 = namePlayer2;
     }
 
+    public String getSignPlayer1() {
+        return signPlayer1;
+    }
+
+    public void setSignPlayer1(String signPlayer1) {
+        this.signPlayer1 = signPlayer1;
+    }
+
+    public String getSignPlayer2() {
+        return signPlayer2;
+    }
+
+    public void setSignPlayer2(String signPlayer2) {
+        this.signPlayer2 = signPlayer2;
+    }
+
     public int getValuePlayer1() {
         return valuePlayer1;
     }
@@ -44,17 +63,16 @@ public class GameStatistic {
         this.valuePlayer2 = valuePlayer2;
     }
 
-
-    public void addStatisticAfterWin(String playerSign){
-        if ("X".equalsIgnoreCase(playerSign)){
+    public void addStatisticAfterWin(String playerSign) {
+        if ("X".equalsIgnoreCase(playerSign)) {
             valuePlayer1 += 1;
-        }else if("O".equalsIgnoreCase(playerSign)) {
+        } else if ("O".equalsIgnoreCase(playerSign)) {
             valuePlayer2 += 1;
         }
     }
 
     public void printStatistic() {
-        log.info(namePlayer1 + " win games: " + valuePlayer1);
-        log.info(namePlayer2 + " win games: " + valuePlayer2);
+        log.info(namePlayer1 + " " + signPlayer1 + " win games: " + valuePlayer1);
+        log.info(namePlayer2 + " " + signPlayer2 + " win games: " + valuePlayer2);
     }
 }
