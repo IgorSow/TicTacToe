@@ -103,8 +103,12 @@ public class ArtificialPlayerLogic {
                 int x;
                 int y;
 
+
                 x = new Random().nextInt(3);
                 y = new Random().nextInt(3);
+                System.out.println(x);
+                System.out.println(y);
+                System.out.println();
                 if (board.getBoard()[x][y].equalsIgnoreCase("")) {
                     board.betField(x, y, signComputer);
                     ret = false;

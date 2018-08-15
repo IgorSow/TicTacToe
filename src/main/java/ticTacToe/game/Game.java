@@ -116,8 +116,7 @@ public class Game {
             }
 
 
-
-            ArtificialPlayerLogic.computerMove(board, player2.getSign());
+            ArtificialPlayerLogic.computerMove(board, player1.getSign(), player2.getSign());
             if ((logic.isWinGame(board).equalsIgnoreCase(player2.getSign())
                     || logic.gameEnded(board))) {
                 break;

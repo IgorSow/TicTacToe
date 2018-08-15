@@ -63,6 +63,10 @@ public class MenuPlayerVsComputer {
                 case 2:
                     gameStatistic.printStatistic();
                     break;
+
+                case 3:
+                    currentMenu = false;
+                    break;
             }
         }
 

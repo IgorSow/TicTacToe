@@ -21,25 +21,25 @@ public class Main {
         log.info("1. Wersja w wierszu poleceń");
         log.info("2. Wersja graficzna");
 
-//        int chooseGame = scanner.nextInt();
+        int chooseGame = scanner.nextInt();
+
+        if (chooseGame == 1) {
+            menuConsoleMain();
+        }
+        if (chooseGame == 2) {
+            ticTacToe.gui.sample.Main.main(args);
+
+        }
+////TEST
+//        //given
+//        Participant player2 = new Player("Janusz", "X");
+//        Participant computer = new ArtificialPlayer("O");
 //
-//        if (chooseGame == 1) {
-//            menuConsoleMain();
-//        }
-//        if (chooseGame == 2) {
-//            ticTacToe.gui.sample.Main.main(args);
+//        Game game = new Game(player2, computer);
 //
-//        }
-//TEST
-        //given
-        Participant player2 = new Player("Janusz", "X");
-        Participant computer = new ArtificialPlayer("O");
-
-        Game game = new Game(player2, computer);
-
-
-        game.playUntilWinnerVsComputer();
-        //then
+//
+//        game.playUntilWinnerVsComputer();
+//        //then
 
     }
 
