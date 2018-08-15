@@ -84,7 +84,7 @@ public class Controller implements Initializable {
         return instance;
     }
 
-    public Pane getPANE_MAIN() {
+    public Pane  getPANE_MAIN() {
         return PANE_MAIN;
     }
 

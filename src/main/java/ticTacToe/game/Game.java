@@ -18,6 +18,7 @@ public class Game {
         this.player2 = player2;
         this.logic = new Logic();
         this.board = new Board();
+
     }
 
     public Participant getPlayer1() {

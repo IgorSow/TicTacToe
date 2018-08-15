@@ -14,30 +14,35 @@ public class MenuConsoleMain {
 
     public static void menuConsoleMain() {
         Scanner scanner = new Scanner(System.in);
-        GameStatistic gameStatistic = new GameStatistic();
-
-        log.info("We will play at TicTacToGame");
-        log.info("Please select option who will play");
-        log.info("1 - Player vs Player");
-        log.info("2 - Player vs Computer");
 
 
-        int chosenOption = scanner.nextInt();
+        boolean currentMenu = true;
+        while (currentMenu) {
+            log.info("We will play at TicTacToGame");
+            log.info("Please select option who will play");
+            log.info("1 - Player vs Player");
+            log.info("2 - Player vs Computer");
+            log.info("3 - Back to main menu");
 
-        while (true)
-        switch (chosenOption) {
-            case 1:
-                menuPlayerVsPlayerConsole(gameStatistic);
-                break;
 
-            case 2:
-                menuPlayerVsComputer();
-                break;
+            int chosenOption = scanner.nextInt();
+
+            switch (chosenOption) {
+                case 1:
+                    menuPlayerVsPlayerConsole();
+                    break;
+
+                case 2:
+                    menuPlayerVsComputer();
+                    break;
+                case 3:
+                    currentMenu = false;
+                    break;
+            }
+
         }
 
+
     }
-
-
-
 
 }

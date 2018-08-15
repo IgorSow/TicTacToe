@@ -16,30 +16,30 @@ public class Main {
 
     public static void main(String[] args) {
 
-//        Scanner scanner = new Scanner(System.in);
-//        log.info("Wybiesz rodzaj gry : ");
-//        log.info("1. Wersja w wierszu poleceń");
-//        log.info("2. Wersja graficzna");
+        Scanner scanner = new Scanner(System.in);
+        log.info("Wybiesz rodzaj gry : ");
+        log.info("1. Wersja w wierszu poleceń");
+        log.info("2. Wersja graficzna");
+
+        int chooseGame = scanner.nextInt();
+
+        if (chooseGame == 1) {
+            menuConsoleMain();
+        }
+        if (chooseGame == 2) {
+            ticTacToe.gui.sample.Main.main(args);
+
+        }
+//TEST
+//        //given
+//        Participant player2 = new Player("Janusz","X");
+//        Participant computer = new ArtificialPlayer("O");
 //
-//        int chooseGame = scanner.nextInt();
+//        Game game = new Game(player2,computer);
 //
-//        if (chooseGame == 1){
-//            menuConsoleMain();
-//        }
-//        if (chooseGame == 2){
-//            ticTacToe.gui.sample.Main.main(args);
 //
-//        }
-
-        //given
-        Participant player2 = new Player("Janusz","X");
-        Participant computer = new ArtificialPlayer("O");
-
-        Game game = new Game(player2,computer);
-
-
-        game.playUntilWinnerVsComputer();
-        //then
+//        game.playUntilWinnerVsComputer();
+//        //then
 
     }
 
