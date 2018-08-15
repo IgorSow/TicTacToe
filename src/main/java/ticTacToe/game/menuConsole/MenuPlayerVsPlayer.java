@@ -29,8 +29,12 @@ public class MenuPlayerVsPlayer {
 
         Game game = new Game(player1, player2);
 
-        gameStatistic.setNamePlayer1(player1Name);
-        gameStatistic.setNamePlayer2(player2Name);
+            gameStatistic.setNamePlayer1(player1.getName());
+            gameStatistic.setSignPlayer1(player1.getSign());
+
+
+            gameStatistic.setNamePlayer2(player2.getName());
+            gameStatistic.setSignPlayer2(player2.getSign());
 
             log.info("Let's get start !");
             log.info("1 - start!");
