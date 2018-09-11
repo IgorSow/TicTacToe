@@ -85,8 +85,8 @@ public class Game {
         return logic.isWinGame(board);
     }
 
-    public String playUntilWinnerNetwork(){
-        return logic.isWinGame(board);
+    public String playUntilWinnerNetwork(Board board2){
+        return logic.isWinGame(board2);
     }
 
     public boolean gameEnded(){

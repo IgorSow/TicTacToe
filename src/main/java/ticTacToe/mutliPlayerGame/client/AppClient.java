@@ -13,78 +13,57 @@ public class AppClient {
     public static void main(String[] args) throws IOException {
 
         String resultOfTheGame = null;
-        Socket registeringSocket = new Socket("localhost", 8085);
-        GameClientLogic gameClientLogic = new GameClientLogic();
+        GameClientLogic gameClientLogic = new GameClientLogic("localhost",8085);
 
-        gameClientLogic.registerPlayer(registeringSocket);
+        gameClientLogic.registerPlayer();
 
         boolean isFinish = false;
         while (!isFinish) {
 
-            Socket socket = new Socket("localhost", 8085);
 
-            gameClientLogic.playUntilWin(socket);
-            socket.close();
-            while (isFinish){
+            gameClientLogic.playUntilWin();
 
-                Socket checkWinner = new Socket("localhost",8085);
+            resultOfTheGame = gameClientLogic.checkWinner();
+            System.out.println(resultOfTheGame);
+            if("X".equalsIgnoreCase(resultOfTheGame) || "Y".equalsIgnoreCase(resultOfTheGame)){
+                isFinish = true;
+            }else{
 
-                resultOfTheGame = gameClientLogic.gameEnded(checkWinner);
-
-                isFinish = Boolean.parseBoolean(resultOfTheGame);
-
-                if (isFinish == false){
-                    Socket resultOfGame = new Socket("localhost",8085);
-
-                    resultOfTheGame = gameClientLogic.checkWinner(resultOfGame);
-                }
-
-
-
-
+            String gameEnded = gameClientLogic.gameEnded();
+            System.out.println(gameEnded);
+            isFinish = Boolean.parseBoolean(gameEnded);
             }
 
-//
-//            Scanner scanner = new Scanner(System.in);
-//            System.out.println("napisz wiadomosc :");
-//
-//            String writeMsgToServer = scanner.nextLine();
-//            sendMesgToServer(socket, writeMsgToServer);
-//
-//            String messageFromServer = gerMessageFromServer(socket);
-//
-//
-//            printMessageFromServer(messageFromServer);
 
-//
+
         }
         System.out.println("Result of the game is: " + resultOfTheGame);
     }
-
-    private static void printMessageFromServer(String messageFromServer) {
-        String[] splittedMessage = messageFromServer.split("@");
-
-        for (String message : splittedMessage) {
-
-            System.out.println(message);
-        }
-    }
-
-    private static String gerMessageFromServer(Socket socket) throws IOException {
-        InputStream inputStream = socket.getInputStream();
-        Scanner receiveMessage = new Scanner(inputStream);
-
-        String ret = receiveMessage.nextLine();
-        return ret;
-    }
-
-    private static void sendMesgToServer(Socket socket, String msgToServer) throws IOException {
-        OutputStream outputStream = socket.getOutputStream();
-        PrintWriter sendMessage = new PrintWriter(outputStream);
-
-        sendMessage.println(msgToServer);
-        sendMessage.flush();
-    }
+//
+//    private static void printMessageFromServer(String messageFromServer) {
+//        String[] splittedMessage = messageFromServer.split("@");
+//
+//        for (String message : splittedMessage) {
+//
+//            System.out.println(message);
+//        }
+//    }
+//
+//    private static String gerMessageFromServer(Socket socket) throws IOException {
+//        InputStream inputStream = socket.getInputStream();
+//        Scanner receiveMessage = new Scanner(inputStream);
+//
+//        String ret = receiveMessage.nextLine();
+//        return ret;
+//    }
+//
+//    private static void sendMesgToServer(Socket socket, String msgToServer) throws IOException {
+//        OutputStream outputStream = socket.getOutputStream();
+//        PrintWriter sendMessage = new PrintWriter(outputStream);
+//
+//        sendMessage.println(msgToServer);
+//        sendMessage.flush();
+//    }
 
 
 }

@@ -7,7 +7,6 @@ public class GameServerLogic {
     private Participant player1;
     private Participant player2;
     private Game game;
-    private Logic logic;
     private Board board;
 
 
@@ -15,7 +14,6 @@ public class GameServerLogic {
         this.player1 = new Player();
         this.player2 = new Player();
         this.game = new Game(player1, player2);
-        this.logic = new Logic();
         this.board = new Board();
     }
 
@@ -29,29 +27,37 @@ public class GameServerLogic {
 
 
             case "hello":
-                return setPlayersName(splitMessage);
+                return registerPlayers(splitMessage);
 
             case "board":
                 return PrintBoard.printBoardNetwork(board);
 
             case "moveX":
-                return board.betFieldNetwork(Integer.parseInt(splitMessage[2]), Integer.parseInt(splitMessage[3]), player1.getSign());
-
+                return board.betFieldNetwork(Integer.parseInt(splitMessage[1]), Integer.parseInt(splitMessage[2]), player1.getSign());
 
             case "moveY":
-                return board.betFieldNetwork(Integer.parseInt(splitMessage[2]), Integer.parseInt(splitMessage[3]), player2.getSign());
+                return board.betFieldNetwork(Integer.parseInt(splitMessage[1]), Integer.parseInt(splitMessage[2]), player2.getSign());
             case "checkWinner":
-                return game.playUntilWinnerNetwork();
+                return checkWinner();
 
             case "gameEnded":
-                return String.valueOf(game.gameEnded());
+                return String.valueOf(isOver());
             default:
                 return PrintBoard.printBoardNetwork(board);
         }
 
     }
 
-    private String setPlayersName(String[] splitMessage) {
+    public String checkWinner() {
+        return game.playUntilWinnerNetwork(board);
+    }
+
+    public boolean isOver() {
+
+        return  game.gameEnded();
+    }
+
+    private String registerPlayers(String[] splitMessage) {
         if (player1.getName() == null) {
             player1.setName(splitMessage[1]);
             player1.setSign("X");
@@ -66,6 +72,4 @@ public class GameServerLogic {
         }
 
     }
-
-
 }

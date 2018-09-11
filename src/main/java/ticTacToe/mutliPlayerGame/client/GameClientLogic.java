@@ -13,12 +13,17 @@ import java.util.Scanner;
 public class GameClientLogic {
 
     private Participant participant;
+    private String host;
+    private int port;
 
-    public GameClientLogic() {
+    public GameClientLogic(String host, int port) {
+        this.host = host;
+        this.port = port;
         this.participant = new Player();
     }
 
-    public void registerPlayer(Socket socket) throws IOException {
+    public void registerPlayer() throws IOException {
+        Socket socket = new Socket(host,port);
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please write your name");
         String name = scanner.nextLine();
@@ -33,11 +38,12 @@ public class GameClientLogic {
         participant.setSign(receiveFromServer.substring(receiveFromServer.length()-1));
 
         breakIfGameIsFull(receiveFromServer);
+        socket.close();
     }
 
-    public void playUntilWin(Socket socket) throws IOException {
+    public void playUntilWin() throws IOException {
+        Socket socket = new Socket(host,port);
 
-        
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please write co-ordinates :");
         System.out.println("Number of rows are setting 0-2");
@@ -50,19 +56,38 @@ public class GameClientLogic {
 
         System.out.println(playerCommand);
         sendMessageToServer(socket,playerCommand);
-//
-//        System.out.println(getMessageFromServer(socket));
 
+
+        String messageFromServer = getMessageFromServer(socket);
+
+        System.out.println(messageFromServer);
+        socket.close();
+        printBoard();
     }
 
-    private static void printMessageFromServer(String messageFromServer) {
-        String[] splittedMessage = messageFromServer.split("@");
+    private void printBoard() throws IOException {
 
-        for (String message : splittedMessage) {
+        Socket socket = new Socket(host,port);
+        sendMessageToServer(socket,"board");
 
-            System.out.println(message);
+        String boardFromServer = getMessageFromServer(socket);
+
+        String[] splitedBoard = boardFromServer.split("@");
+
+        for (String rowOfBoard : splitedBoard) {
+
+            System.out.println(rowOfBoard);
         }
+        socket.close();
     }
+
+
+
+
+
+
+
+
 
 
     private void breakIfGameIsFull(String receiveFromServer) {
@@ -88,20 +113,24 @@ public class GameClientLogic {
     }
 
 
-    public String gameEnded(Socket checkGameEnded) throws IOException {
+    public String gameEnded() throws IOException {
+        Socket socket = new Socket(host,port);
 
-        sendMessageToServer(checkGameEnded,"gameEnded");
+        sendMessageToServer(socket,"gameEnded");
 
-        String responseFromServer = getMessageFromServer(checkGameEnded);
+        String responseFromServer = getMessageFromServer(socket);
+        socket.close();
 
         return responseFromServer;
     }
 
-    public String checkWinner(Socket resultOfGame) throws IOException {
+    public String checkWinner() throws IOException {
+        Socket socket = new Socket(host,port);
+        sendMessageToServer(socket,"checkWinner");
 
-        sendMessageToServer(resultOfGame,"checkWinner");
+        String responseFromServer = getMessageFromServer(socket);
+        socket.close();
 
-        String responseFromServer = getMessageFromServer(resultOfGame);
         return responseFromServer;
     }
 }

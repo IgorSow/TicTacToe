@@ -16,22 +16,32 @@ public class AppServer {
 
 
         while (true) {
-            Socket socket = serverSocket.accept();
-            InputStream inputStream = socket.getInputStream();
-            Scanner receivedMessage = new Scanner(inputStream);
+            if(!gameServerLogic.isOver()) {
+                Socket socket = serverSocket.accept();
+                String rawMessageFromClient = getMsgFromClient(socket);
 
-            String rawMessageFromClient = receivedMessage.nextLine();
-
-            String messageToResponse = gameServerLogic.handleMessage(rawMessageFromClient);
+                String messageToResponse = gameServerLogic.handleMessage(rawMessageFromClient);
 
 
-            sendMsgToClient(socket, messageToResponse);
+                sendMsgToClient(socket, messageToResponse);
 
 
-            socket.close();
+                socket.close();
+            }else {
+                Socket socket = serverSocket.accept();
+
+                sendMsgToClient(socket,"Game is over, result : " + gameServerLogic.checkWinner());
+            }
         }
 
 
+    }
+
+    private static String getMsgFromClient(Socket socket) throws IOException {
+        InputStream inputStream = socket.getInputStream();
+        Scanner receivedMessage = new Scanner(inputStream);
+
+        return receivedMessage.nextLine();
     }
 
     private static void sendMsgToClient(Socket socket, String messageTohandle) throws IOException {
