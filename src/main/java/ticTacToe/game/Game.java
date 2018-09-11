@@ -85,6 +85,14 @@ public class Game {
         return logic.isWinGame(board);
     }
 
+    public String playUntilWinnerNetwork(){
+        return logic.isWinGame(board);
+    }
+
+    public boolean gameEnded(){
+        return logic.gameEnded(board);
+    }
+
     private boolean computerTurn() {
         ArtificialPlayerLogic.computerMove(board, player1.getSign(), player2.getSign());
         if ((logic.isWinGame(board).equalsIgnoreCase(player2.getSign())

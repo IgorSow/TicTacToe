@@ -1,8 +1,4 @@
-package ticTacToe.server2;
-
-import ticTacToe.game.Game;
-import ticTacToe.game.Participant;
-import ticTacToe.game.Player;
+package ticTacToe.mutliPlayerGame.server;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,11 +8,11 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class server {
+public class AppServer {
 
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = new ServerSocket(8085);
-        GameServer gameServer = new GameServer();
+        GameServerLogic gameServerLogic = new GameServerLogic();
 
 
         while (true) {
@@ -26,22 +22,13 @@ public class server {
 
             String rawMessageFromClient = receivedMessage.nextLine();
 
-            String messageToResponse = gameServer.handleMessage(rawMessageFromClient);
+            String messageToResponse = gameServerLogic.handleMessage(rawMessageFromClient);
 
 
             sendMsgToClient(socket, messageToResponse);
 
 
-//                OutputStream outputStream = socket.getOutputStream();
-//                PrintWriter sentMessage = new PrintWriter(outputStream);
-//
-//            String[] msgToClient = messageToResponse.split("@");
-//            for(int i =0; i < msgToClient.length; i++) {
-//
-//                sentMessage.println(msgToClient[i]);
-//            }
-//                sentMessage.flush();
-//            socket.close();
+            socket.close();
         }
 
 
