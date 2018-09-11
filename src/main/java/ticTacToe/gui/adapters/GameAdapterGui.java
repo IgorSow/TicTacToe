@@ -35,8 +35,6 @@ public class GameAdapterGui {
         );
 
 
-
-
         playerChose[0] = player1;
         Game game = new Game(player1, player2);
         System.out.println("Gra juz dziala");
@@ -50,6 +48,7 @@ public class GameAdapterGui {
         Controller.instance.getBUTTON_PLAYER2().setOnAction(event -> {
             playerChose[0] = player2;
         });
+
         checkButton(playerChose, game);
         printNameOnPane();
 

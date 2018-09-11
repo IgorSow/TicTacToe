@@ -71,12 +71,12 @@ public class GameTest {
     }
 
     @Test // case 5d
-    public void shouldCheckEndAskingForMoveIfGameIsOver(){
+    public void shouldCheckEndAskingForMoveIfGameIsOver() {
 
     }
 
     @Test // case 5e
-    public void shouldCheckReturnCoordinatesOfPlayerOnBoard(){
+    public void shouldCheckReturnCoordinatesOfPlayerOnBoard() {
 
     }
 
@@ -86,22 +86,22 @@ public class GameTest {
     }
 
     @Test // case 5g
-    public  void shouldCheckAfterMoveIsWin(){
+    public void shouldCheckAfterMoveIsWin() {
 
     }
 
     @Test //case 5h
-    public void shouldWhetherIsWinner(){
+    public void shouldWhetherIsWinner() {
 
     }
 
     @Test //case 5i
-    public void shouldCheckGameIsEndByDraw(){
+    public void shouldCheckGameIsEndByDraw() {
 
     }
 
     @Test //case 5j
-    public void shouldCheckGameIsDoped(){
+    public void shouldCheckGameIsDoped() {
 
     }
 

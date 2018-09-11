@@ -8,6 +8,7 @@ import ticTacToe.game.Participant;
 import ticTacToe.game.Player;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
 @Slf4j
 public class ArtificialPlayerTest {
 

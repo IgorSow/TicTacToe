@@ -39,6 +39,22 @@ public class Board {
             log.info("The field is not empty have to bet in other place ");
         return false;
     }
+    public String betFieldNetwork(int row, int col, String sign) {
+
+        if (row > 2 || col > 2 || (!sign.equalsIgnoreCase("X") && !sign.equalsIgnoreCase("O"))) {
+            return "We play in TicTacToe add value 0 do 2 and pick X or O";
+
+        }
+        if (board[row][col].equals("")) {
+            board[row][col] = sign;
+            return "Correct Move";
+        } else
+            return"The field is not empty have to bet in other place ";
+
+    }
+
+
+
 
     public String getField(int row, int col) throws Exception {
 

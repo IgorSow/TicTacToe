@@ -1,9 +1,7 @@
 package ticTacToe.game;
 
 import lombok.extern.slf4j.Slf4j;
-import ticTacToe.gui.sample.Controller;
 
-import java.awt.*;
 import java.util.Scanner;
 
 @Slf4j
@@ -20,6 +18,8 @@ public class Game {
         this.board = new Board();
 
     }
+
+
 
     public Participant getPlayer1() {
         return player1;
@@ -50,39 +50,9 @@ public class Game {
 
         boolean ret = true;
         while (ret) {
-            do {
+            if (playerTurn(scanner)) break;
 
-                log.info(player1.getName() + " please give your move ");
-                log.info("Please give a row : ");
-                row = scanner.nextInt();
-                log.info("Please give a col : ");
-                col = scanner.nextInt();
-
-
-            }
-            while (playerBetField(row, col, player1) == false);
-            PrintBoard.printBoard(board);
-            if ((logic.isWinGame(board).equalsIgnoreCase("X")
-                    || logic.gameEnded(board))) {
-
-                break;
-            }
-
-            do {
-                log.info(player2.getName() + " please give your move ");
-                log.info("Please give a row : ");
-                row2 = scanner.nextInt();
-                log.info("Please give a col: ");
-                col2 = scanner.nextInt();
-
-            }
-            while (playerBetField(row2, col2, player2) == false);
-            PrintBoard.printBoard(board);
-            if (logic.isWinGame(board).equalsIgnoreCase("o")
-                    || logic.gameEnded(board)) {
-
-                break;
-            }
+            if (playerTurn2(scanner)) break;
 
         }
         log.info("Result : " + logic.isWinGame(board));
@@ -98,33 +68,73 @@ public class Game {
         int col;
         boolean ret = true;
         while (ret) {
-            do {
 
-                log.info(player1.getName() + " please give your move ");
-                log.info("Please give a row : ");
-                row = scanner.nextInt();
-                log.info("Please give a col : ");
-                col = scanner.nextInt();
+            if (player1.getSign().equalsIgnoreCase("X")){
+                if (playerTurn(scanner)) break;
 
 
-            }
-            while (playerBetField(row, col, player1) == false);
-            PrintBoard.printBoard(board);
-            if ((logic.isWinGame(board).equalsIgnoreCase(player1.getSign())
-                    || logic.gameEnded(board))) {
-                break;
+                if (computerTurn()) break;
+            }else {
+                if (computerTurn()) break;
+                if (playerTurn(scanner)) break;
             }
 
-
-            ArtificialPlayerLogic.computerMove(board, player1.getSign(), player2.getSign());
-            if ((logic.isWinGame(board).equalsIgnoreCase(player2.getSign())
-                    || logic.gameEnded(board))) {
-                break;
-            }
-            PrintBoard.printBoard(board);
         }
         PrintBoard.printBoard(board);
         log.info("Result : " + logic.isWinGame(board));
         return logic.isWinGame(board);
+    }
+
+    private boolean computerTurn() {
+        ArtificialPlayerLogic.computerMove(board, player1.getSign(), player2.getSign());
+        if ((logic.isWinGame(board).equalsIgnoreCase(player2.getSign())
+                || logic.gameEnded(board))) {
+            return true;
+        }
+        PrintBoard.printBoard(board);
+        return false;
+    }
+
+    private boolean playerTurn(Scanner scanner) {
+        int row;
+        int col;
+        do {
+
+            log.info(player1.getName() + " please give your move ");
+            log.info("Please give a row : ");
+            row = scanner.nextInt();
+            log.info("Please give a col : ");
+            col = scanner.nextInt();
+
+
+        }
+        while (playerBetField(row, col, player1) == false);
+        PrintBoard.printBoard(board);
+        if ((logic.isWinGame(board).equalsIgnoreCase(player1.getSign())
+                || logic.gameEnded(board))) {
+            return true;
+        }
+        return false;
+    }
+    private boolean playerTurn2(Scanner scanner) {
+        int row;
+        int col;
+        do {
+
+            log.info(player2.getName() + " please give your move ");
+            log.info("Please give a row : ");
+            row = scanner.nextInt();
+            log.info("Please give a col : ");
+            col = scanner.nextInt();
+
+
+        }
+        while (playerBetField(row, col, player2) == false);
+        PrintBoard.printBoard(board);
+        if ((logic.isWinGame(board).equalsIgnoreCase(player2.getSign())
+                || logic.gameEnded(board))) {
+            return true;
+        }
+        return false;
     }
 }
