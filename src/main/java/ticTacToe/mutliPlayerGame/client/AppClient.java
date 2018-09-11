@@ -10,10 +10,10 @@ import java.util.Scanner;
 public class AppClient {
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args , String host) throws IOException {
 
         String resultOfTheGame = null;
-        GameClientLogic gameClientLogic = new GameClientLogic("localhost",8085);
+        GameClientLogic gameClientLogic = new GameClientLogic(host,8085);
 
         gameClientLogic.registerPlayer();
 

@@ -29,7 +29,9 @@ public class MenuNetvork {
                     break;
 
                 case 2:
-                    AppClient.main(args);
+                    log.info("Please write your server IP");
+                    String host = scanner.next();
+                    AppClient.main(args, host);
                     break;
                 case 3:
                     currentMenu = false;
