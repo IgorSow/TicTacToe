@@ -8,8 +8,12 @@ import java.util.Scanner;
 
 @Slf4j
 public class MenuNetvork {
+    public static String HOST = null;
+    public static int PORT = 8085;
 
     public static void menuNetwork(String[] args) throws IOException {
+
+
         Scanner scanner = new Scanner(System.in);
 
 
@@ -30,8 +34,10 @@ public class MenuNetvork {
 
                 case 2:
                     log.info("Please write your server IP");
-                    String host = scanner.next();
-                    AppClient.main(args, host);
+                    HOST = scanner.next();
+                    AppClient.main(args);
+
+
                     break;
                 case 3:
                     currentMenu = false;

@@ -35,7 +35,7 @@ public class GameServerLogic {
             case "moveX":
                 return board.betFieldNetwork(Integer.parseInt(splitMessage[1]), Integer.parseInt(splitMessage[2]), player1.getSign());
 
-            case "moveY":
+            case "moveO":
                 return board.betFieldNetwork(Integer.parseInt(splitMessage[1]), Integer.parseInt(splitMessage[2]), player2.getSign());
             case "checkWinner":
                 return checkWinner();
@@ -65,7 +65,7 @@ public class GameServerLogic {
 
         } else if (player2.getName() == null) {
             player2.setName(splitMessage[1]);
-            player2.setSign("Y");
+            player2.setSign("O");
             return "Welcome " + player2.getName() + " you have sign: " + player2.getSign();
         } else {
             return "Game is full. On TicTacToe can play only two players";

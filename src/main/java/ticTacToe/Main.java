@@ -36,16 +36,6 @@ public class Main {
         if (chooseGame == 3){
             MenuNetvork.menuNetwork(args);
         }
-////TEST
-//        //given
-//        Participant player2 = new Player("Janusz", "X");
-//        Participant computer = new ArtificialPlayer("O");
-//
-//        Game game = new Game(player2, computer);
-//
-//
-//        game.playUntilWinnerVsComputer();
-//        //then
 
     }
 

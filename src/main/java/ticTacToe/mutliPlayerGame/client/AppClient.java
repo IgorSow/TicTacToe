@@ -7,38 +7,54 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
+import static ticTacToe.mutliPlayerGame.server.MenuNetvork.HOST;
+import static ticTacToe.mutliPlayerGame.server.MenuNetvork.PORT;
+
+
 public class AppClient {
 
 
-    public static void main(String[] args , String host) throws IOException {
+    public static void main(String[] args) throws IOException {
+
 
         String resultOfTheGame = null;
-        GameClientLogic gameClientLogic = new GameClientLogic(host,8085);
+        GameClientLogic gameClientLogic = new GameClientLogic(HOST, PORT);
+
 
         gameClientLogic.registerPlayer();
 
         boolean isFinish = false;
         while (!isFinish) {
 
-
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Next moge");
+            scanner.next();
             gameClientLogic.playUntilWin();
 
+
             resultOfTheGame = gameClientLogic.checkWinner();
+
             System.out.println(resultOfTheGame);
-            if("X".equalsIgnoreCase(resultOfTheGame) || "Y".equalsIgnoreCase(resultOfTheGame)){
+            if ("X".equalsIgnoreCase(resultOfTheGame) || "O".equalsIgnoreCase(resultOfTheGame)) {
                 isFinish = true;
-            }else{
+            } else {
 
-            String gameEnded = gameClientLogic.gameEnded();
-            System.out.println(gameEnded);
-            isFinish = Boolean.parseBoolean(gameEnded);
+                String gameEnded = null;
+
+                gameEnded = gameClientLogic.gameEnded();
+
+                System.out.println(gameEnded);
+                isFinish = Boolean.parseBoolean(gameEnded);
             }
-
 
 
         }
         System.out.println("Result of the game is: " + resultOfTheGame);
+
     }
+
+
+}
 //
 //    private static void printMessageFromServer(String messageFromServer) {
 //        String[] splittedMessage = messageFromServer.split("@");
@@ -66,4 +82,4 @@ public class AppClient {
 //    }
 
 
-}
+

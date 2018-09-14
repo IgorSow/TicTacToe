@@ -8,32 +8,43 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class AppServer {
+public class AppServer{
 
-    public static void main(String[] args) throws IOException {
-        ServerSocket serverSocket = new ServerSocket(8085);
-        GameServerLogic gameServerLogic = new GameServerLogic();
+//    public AppServer() {
+//    }
 
+        public static void main(String[] args) throws IOException {
 
-        while (true) {
-            if(!gameServerLogic.isOver()) {
-                Socket socket = serverSocket.accept();
-                String rawMessageFromClient = getMsgFromClient(socket);
-
-                String messageToResponse = gameServerLogic.handleMessage(rawMessageFromClient);
+        ServerSocket serverSocket = null;
+//        try {
+            serverSocket = new ServerSocket(8085);
+            GameServerLogic gameServerLogic = new GameServerLogic();
 
 
-                sendMsgToClient(socket, messageToResponse);
+            while (true) {
+                if (!gameServerLogic.isOver()) {
+                    System.out.println("Waiting for request...");
+                    Socket socket = serverSocket.accept();
+                    System.out.println(socket.getInetAddress());
+                    String rawMessageFromClient = getMsgFromClient(socket);
+
+                    String messageToResponse = gameServerLogic.handleMessage(rawMessageFromClient);
 
 
-                socket.close();
-            }else {
-                Socket socket = serverSocket.accept();
+                    sendMsgToClient(socket, messageToResponse);
 
-                sendMsgToClient(socket,"Game is over, result : " + gameServerLogic.checkWinner());
+
+                    socket.close();
+                } else {
+                    Socket socket = serverSocket.accept();
+
+                    sendMsgToClient(socket, "Game is over, result : " + gameServerLogic.checkWinner());
+                }
             }
-        }
 
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
     }
 
@@ -55,3 +66,4 @@ public class AppServer {
 
 
 }
+
